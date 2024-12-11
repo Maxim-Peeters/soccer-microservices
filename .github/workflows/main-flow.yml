@@ -5,12 +5,12 @@ on: push
 jobs:
   playerservice:
     runs-on: ubuntu-latest
-    name: Build, test, deliver player-service container
+    name: Java 17 build, test, deliver player-service container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optional, afhankelijk van je project)
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -19,7 +19,7 @@ jobs:
 
       - name: Build, test and package project
         working-directory: ./player-service
-        run: mvn package -B  # Pas dit aan afhankelijk van je technologie (bijv. .NET of Node.js)
+        run: mvn package -B
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
@@ -32,12 +32,12 @@ jobs:
 
   teamservice:
     runs-on: ubuntu-latest
-    name: Build, test, deliver team-service container
+    name: Java 17 build, test, deliver team-service container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optioneel)
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -59,12 +59,12 @@ jobs:
 
   matchservice:
     runs-on: ubuntu-latest
-    name: Build, test, deliver match-service container
+    name: Java 17 build, test, deliver match-service container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optioneel)
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -86,12 +86,12 @@ jobs:
 
   supporterservice:
     runs-on: ubuntu-latest
-    name: Build, test, deliver supporter-service container
+    name: Java 17 build, test, deliver supporter-service container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optioneel)
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -113,12 +113,12 @@ jobs:
 
   apigateway:
     runs-on: ubuntu-latest
-    name: Build, test, deliver api-gateway container
+    name: Java 17 build, test, deliver api-gateway container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optioneel)
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -133,7 +133,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/api-gateway:latest ./api-gateway
+        run: docker build --build-arg GOOGLE_CLIENTID=${{ secrets.GOOGLE_CLIENTID }} --build-arg GOOGLE_CLIENTSECRET=${{ secrets.GOOGLE_CLIENTSECRET }} -t ${{ secrets.DOCKER_USER }}/api-gateway:latest ./api-gateway
 
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/api-gateway:latest

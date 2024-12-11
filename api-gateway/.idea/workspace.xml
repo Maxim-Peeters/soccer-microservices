@@ -5,38 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="013680b0-63ef-4e3c-abde-5bdff85b1f05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/apigateway/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -57,15 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Maxim/Documents/school/Advanced programming topics/soccer-microservices/api-gateway",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
@@ -92,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1733857168596</updated>
       <workItem from="1733857169657" duration="4000" />
+      <workItem from="1733880745675" duration="1207000" />
     </task>
     <servers />
   </component>

@@ -5,58 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea5dcce6-d3df-4321-8e2e-efc48939a669" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../match-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/controller/MatchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/dto/MatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/dto/MatchResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/model/Match.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/repository/MatchRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/matchservice/service/MatchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/controller/PlayerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/dto/PlayerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/dto/PlayerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/model/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/repository/PlayerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/service/PlayerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/controller/SupporterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/dto/SupporterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/dto/SupporterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/model/Supporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/repository/SupporterRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/service/SupporterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/controller/TeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/dto/TeamRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/dto/TeamResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/model/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/repository/TeamRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/teamservice/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/fact/it/apigateway/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fact/it/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +91,7 @@
       <updated>1733857054942</updated>
       <workItem from="1733857056046" duration="47000" />
       <workItem from="1733867046168" duration="3282000" />
-      <workItem from="1733879774351" duration="800000" />
+      <workItem from="1733879774351" duration="1367000" />
     </task>
     <servers />
   </component>
