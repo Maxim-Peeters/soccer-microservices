@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongo-players:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_player_data:/data/db
+
+  player-service:
+    depends_on:
+      - mongo-players
+    image: maximp123/player_service:latest
+    ports:
+      - 8080:8080
+    environment:
+      MONGODB_PORT: 27017
+      MONGODB_HOST: mongo-players  
+volumes:
+  mongodb_player_data:

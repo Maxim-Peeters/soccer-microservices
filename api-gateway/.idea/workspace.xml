@@ -4,35 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fda3108-8fc4-4642-b640-9c57e93608e7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="013680b0-63ef-4e3c-abde-5bdff85b1f05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,25 +41,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2q2K5GKCTpKoxCy2a0qop6JjEQy" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2q2ONuNimpEENDUNuflltJln4jI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Maxim/Documents/school/Advanced programming topics/soccer-microservices/api-gateway/src/main/java/fact/it/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fact.it.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,27 +86,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4fda3108-8fc4-4642-b640-9c57e93608e7" name="Changes" comment="" />
-      <created>1733855046071</created>
+      <changelist id="013680b0-63ef-4e3c-abde-5bdff85b1f05" name="Changes" comment="" />
+      <created>1733857168596</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733855046071</updated>
-      <workItem from="1733855048932" duration="20000" />
+      <updated>1733857168596</updated>
+      <workItem from="1733857169657" duration="4000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fact/it/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

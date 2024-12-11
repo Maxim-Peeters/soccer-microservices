@@ -4,41 +4,89 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1568df1f-93ee-41bf-b326-1634b5f1d1aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="d0f5322a-ae64-45eb-8b15-a59ea111847e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/controller/MatchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/dto/MatchRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/dto/MatchResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/model/Match.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/repository/MatchRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fact/it/matchservice/service/MatchService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/controller/PlayerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/dto/PlayerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/dto/PlayerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/repository/PlayerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/service/PlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/controller/SupporterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/dto/SupporterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/dto/SupporterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/model/Supporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/repository/SupporterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/supporterservice/service/SupporterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/controller/TeamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/dto/TeamRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/dto/TeamResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/model/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/repository/TeamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/teamservice/service/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-service/src/main/java/fact/it/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../team-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../team-service/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-service/src/main/java/fact/it/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
-  <component name="ProjectId" id="2q2KB1FIkIn0fFUDpfp42qNDLMh" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2q2OJthtaHirCdScORf1o5bvoDH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,12 +95,26 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.MatchServiceApplication.executor": "Run",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Maxim/Documents/school/Advanced programming topics/soccer-microservices/match-service/src/main/java/fact/it/Main.java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="MatchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="match-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fact.it.matchservice.MatchServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -64,27 +126,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1568df1f-93ee-41bf-b326-1634b5f1d1aa" name="Changes" comment="" />
-      <created>1733855092430</created>
+      <changelist id="d0f5322a-ae64-45eb-8b15-a59ea111847e" name="Changes" comment="" />
+      <created>1733857135813</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733855092430</updated>
-      <workItem from="1733855093520" duration="13000" />
+      <updated>1733857135813</updated>
+      <workItem from="1733857136877" duration="15000" />
+      <workItem from="1733878725049" duration="1844000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fact/it/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
