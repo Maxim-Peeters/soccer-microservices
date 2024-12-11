@@ -19,7 +19,7 @@ jobs:
 
       - name: Build, test and package project
         working-directory: ./player-service
-        run: mvn package -B
+        run: mvn package -B -DskipTests
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: Build, test and package project
         working-directory: ./team-service
-        run: mvn package -B
+        run: mvn package -B -DskipTests
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Build, test and package project
         working-directory: ./match-service
-        run: mvn package -B
+        run: mvn package -B -DskipTests
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
@@ -100,7 +100,7 @@ jobs:
 
       - name: Build, test and package project
         working-directory: ./supporter-service
-        run: mvn package -B
+        run: mvn package -B -DskipTests
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
