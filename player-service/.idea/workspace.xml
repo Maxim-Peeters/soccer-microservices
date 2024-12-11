@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="840afc4c-99a8-4d9c-aabe-5a056499b4e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fact/it/playerservice/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fact/it/playerservice/service/PlayerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +108,7 @@
       <workItem from="1733863825842" duration="2032000" />
       <workItem from="1733866228785" duration="812000" />
       <workItem from="1733867090629" duration="9105000" />
-      <workItem from="1733952006141" duration="982000" />
+      <workItem from="1733952006141" duration="1746000" />
     </task>
     <servers />
   </component>

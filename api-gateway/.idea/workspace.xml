@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="013680b0-63ef-4e3c-abde-5bdff85b1f05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../match-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/fact/it/playerservice/service/PlayerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../team-service/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +87,7 @@
       <updated>1733857168596</updated>
       <workItem from="1733857169657" duration="4000" />
       <workItem from="1733880745675" duration="3081000" />
-      <workItem from="1733951989092" duration="1029000" />
+      <workItem from="1733951989092" duration="2373000" />
     </task>
     <servers />
   </component>
