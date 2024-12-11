@@ -1,13 +1,12 @@
 server:
-  port: 8083
+  port: 8084
 
 logging:
   level:
-    root: INFO
-    org.springframework.cloud.gateway: INFO
-    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
-    reactor.netty: INFO
-    org.springframework.security: TRACE
+    root: info
+    org.springframework.cloud.gateway: trace
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: info
+    reactor.netty: trace
 
 spring:
   security:
@@ -25,17 +24,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: player-service
-          uri: http://${PRODUCT_SERVICE_BASEURL:localhost:8080}
-          predicates:
-            - Path=/players
-            - Method=POST
-          filters:
-            - SetPath=/api/players
-        - id: product-service-all
-          uri: http://${PRODUCT_SERVICE_BASEURL:localhost:8080}
+        - id: player-service-get-all
+          uri: http://${PLAYER_SERVICE_BASEURL:localhost:8080}
           predicates:
             - Path=/players
             - Method=GET
           filters:
-            - SetPath=/api/product/all
+            - SetPath=/api/players/all
