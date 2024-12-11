@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea5dcce6-d3df-4321-8e2e-efc48939a669" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/fact/it/apigateway/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../match-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../match-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +93,7 @@
       <updated>1733857054942</updated>
       <workItem from="1733857056046" duration="47000" />
       <workItem from="1733867046168" duration="3282000" />
-      <workItem from="1733879774351" duration="1367000" />
+      <workItem from="1733879774351" duration="1752000" />
     </task>
     <servers />
   </component>

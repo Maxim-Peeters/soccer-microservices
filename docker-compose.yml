@@ -1,21 +1,90 @@
-version: '3.8'
-
 services:
-  mongo-players:
+  mongo-player:
     image: mongo:latest
     ports:
       - 27017:27017
     volumes:
       - mongodb_player_data:/data/db
 
+  mysql-team:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_team_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123
+
+  mongo-match:
+    image: mongo:latest
+    ports:
+      - 27018:27017
+    volumes:
+      - mongodb_match_data:/data/db
+
+  mysql-supporter:
+    image: mysql:latest
+    ports:
+      - 3308:3306
+    volumes:
+      - mysql_supporter_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123
+
   player-service:
     depends_on:
-      - mongo-players
-    image: maximp123/player_service:latest
+      - mongo-player
+    image: maximp123/player-service
     ports:
       - 8080:8080
+    links:
+      - mongo-player
     environment:
       MONGODB_PORT: 27017
-      MONGODB_HOST: mongo-players  
+      MONGODB_HOST: mongo-player
+
+  team-service:
+    depends_on:
+      - mysql-team
+    image: maximp123/team-service
+    ports:
+      - 8082:8082
+    links:
+      - mysql-team
+    environment:
+      MYSQL_DB_USERNAME: root
+      MYSQL_DB_PASSWORD: abc123
+      MYSQL_DB_HOST: mysql-team
+      MYSQL_DB_PORT: 3306
+
+  match-service:
+    depends_on:
+      - mongo-match
+    image: maximp123/match-service
+    ports:
+      - 8083:8083
+    links:
+      - mongo-match
+    environment:
+      MONGODB_PORT: 27017
+      MONGODB_HOST: mongo-match
+
+  supporter-service:
+    depends_on:
+      - mysql-supporter
+    image: maximp123/supporter-service
+    ports:
+      - 8084:8084
+    links:
+      - mysql-supporter
+    environment:
+      MYSQL_DB_USERNAME: root
+      MYSQL_DB_PASSWORD: abc123
+      MYSQL_DB_HOST: mysql-supporter
+      MYSQL_DB_PORT: 3306
+
 volumes:
   mongodb_player_data:
+  mysql_team_data:
+  mongodb_match_data:
+  mysql_supporter_data:
