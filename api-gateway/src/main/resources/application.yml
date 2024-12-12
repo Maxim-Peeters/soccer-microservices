@@ -3,10 +3,12 @@ server:
 
 logging:
   level:
-    root: info
-    org.springframework.cloud.gateway: trace
-    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: info
-    reactor.netty: trace
+    root: INFO
+    org.springframework.cloud.gateway: INFO
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
+    reactor.netty: INFO
+    org.springframework.security: TRACE
+
 
 spring:
   security:
