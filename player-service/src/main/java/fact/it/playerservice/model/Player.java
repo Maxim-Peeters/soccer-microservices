@@ -10,16 +10,15 @@ import java.time.LocalDate;
 
 
 @Document(value="player")
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    @Data
-    public class Player {
-        private String id;
-        private String firstName;
-        private String lastName;
-        private String position;
-        private LocalDate birthDate;
-        private String nationality;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
+public class Player {
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String position;
+    private LocalDate birthDate;
+    private String nationality;
 }
