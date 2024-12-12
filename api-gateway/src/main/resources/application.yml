@@ -26,10 +26,34 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: player-service-get-all
+        - id: player-service
           uri: http://${PLAYER_SERVICE_BASEURL:localhost:8080}
           predicates:
             - Path=/players
             - Method=GET
           filters:
             - SetPath=/api/players/all
+
+        - id: team-service
+          uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/teams
+            - Method=GET
+          filters:
+            - SetPath=/api/teams/all
+
+        - id: match-service
+          uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/matches
+            - Method=GET
+          filters:
+            - SetPath=/api/matches/all
+
+        - id: supporter-service
+          uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
+          predicates:
+            - Path=/supporters
+            - Method=GET
+          filters:
+            - SetPath=/api/supporters/all

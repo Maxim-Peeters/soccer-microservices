@@ -92,10 +92,10 @@ services:
     ports:
       - 8084:8084
     environment:
-      PLAYER_SERVICE_BASEURL: http://player-service:8080
-      TEAM_SERVICE_BASEURL: http://team-service:8081
-      MATCH_SERVICE_BASEURL: http://match-service:8082
-      SUPPORTER_SERVICE_BASEURL: http://supporter-service:8083
+      PLAYER_SERVICE_BASEURL: player-service:8080
+      TEAM_SERVICE_BASEURL: team-service:8081
+      MATCH_SERVICE_BASEURL: match-service:8082
+      SUPPORTER_SERVICE_BASEURL: supporter-service:8083
 volumes:
   mongodb_player_data:
   mysql_team_data:
