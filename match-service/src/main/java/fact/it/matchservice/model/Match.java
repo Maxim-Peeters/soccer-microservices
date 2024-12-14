@@ -6,9 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(value="people")
-@Getter
-@Setter
+@Document(value="match")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
