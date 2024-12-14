@@ -56,28 +56,34 @@ services:
       MYSQL_DB_PASSWORD: abc123
       MYSQL_DB_HOST: mysql-team
       MYSQL_DB_PORT: 3306
+      PLAYER_SERVICE_BASEURL: player-service:8080
 
   match-service:
     depends_on:
-      - mongo-match
+      - team-service
     image: maximp123/match-service
     ports:
       - 8082:8082
     links:
-      - mongo-match
+      - team-service
     environment:
+      TEAM_SERVICE_BASEURL: team-service:8081
       MONGODB_PORT: 27017
       MONGODB_HOST: mongo-match
 
   supporter-service:
     depends_on:
-      - mysql-supporter
+      - player-service
+      - team-service
     image: maximp123/supporter-service
     ports:
       - 8083:8083
     links:
-      - mysql-supporter
+      - player-service
+      - team-service
     environment:
+      PLAYER_SERVICE_BASEURL: player-service:8080
+      TEAM_SERVICE_BASEURL: team-service:8081
       MYSQL_DB_USERNAME: root
       MYSQL_DB_PASSWORD: abc123
       MYSQL_DB_HOST: mysql-supporter

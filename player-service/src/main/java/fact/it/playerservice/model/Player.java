@@ -16,9 +16,12 @@ import java.time.LocalDate;
 @Data
 public class Player {
     private String id;
+    private String playerCode;
     private String firstName;
     private String lastName;
     private String position;
+    private String teamCode;
     private LocalDate birthDate;
     private String nationality;
+
 }

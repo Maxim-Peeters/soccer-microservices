@@ -1,9 +1,6 @@
-package fact.it.playerservice.dto;
+package fact.it.teamservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -11,13 +8,14 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PlayerResponse {
     private String id;
-    private String playerCode;
+    private String driverCode;
     private String firstName;
     private String lastName;
-    private String teamCode;
     private String position;
     private LocalDate birthDate;
     private String nationality;
+
 }
