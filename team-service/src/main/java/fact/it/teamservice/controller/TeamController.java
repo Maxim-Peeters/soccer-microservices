@@ -5,10 +5,7 @@ import fact.it.teamservice.dto.TeamResponse;
 import fact.it.teamservice.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +18,10 @@ public class TeamController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<TeamResponse> getAllTeams(){return teamService.getAllTeams();}
+
+    @GetMapping("/match")
+    @ResponseStatus(HttpStatus.OK)
+    public List<TeamResponse> getTeamsByMatchCode(@RequestParam String matchCode){
+        return teamService.getTeamsByMatchCode(matchCode);
+    }
 }

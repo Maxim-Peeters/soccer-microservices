@@ -3,6 +3,8 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "team")
 @Getter
@@ -18,6 +20,7 @@ public class Team {
     private String name;
     private String city;
     private String country;
+    private List<String> matchCodes;
 
 
 }

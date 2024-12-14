@@ -49,7 +49,9 @@ public class TeamService {
         List<Team> events = teamRepository.findAll();
         return events.stream().map(this::mapToTeamResponse).toList();
     }
-
+    public TeamResponse getTeamsByMatchCode(String matchCode){
+       return teamRepository.findTeamsByMatchCode(matchCode).get().stream().map(this::mapToTeamResponse).toList();
+    }
     private TeamResponse mapToTeamResponse(Team team) {
         List<PlayerResponse> players;
         players = webClient.get()
