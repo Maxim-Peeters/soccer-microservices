@@ -54,7 +54,7 @@ public class TeamService {
         List<PlayerResponse> players;
         players = webClient.get()
                 .uri("http://"+playerServiceBaseurl+"/api/players/team",uriBuilder -> uriBuilder
-                        .queryParam("teamCode", team.getId())
+                        .queryParam("teamCode", team.getTeamCode())
                         .build())
         .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<PlayerResponse>>() {

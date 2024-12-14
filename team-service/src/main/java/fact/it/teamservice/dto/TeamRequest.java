@@ -15,5 +15,5 @@ public class TeamRequest {
     private String name;
     private String city;
     private String country;
-    private List<String> driverIds;
+    private List<String> driverCodes;
 }
