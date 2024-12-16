@@ -3,6 +3,7 @@ services:
     image: mongo:latest
     ports:
       - 27017:27017
+    restart: unless-stopped
     volumes:
       - mongodb_player_data:/data/db
 
@@ -10,6 +11,8 @@ services:
     image: mysql:latest
     ports:
       - 3306:3306
+    restart: unless-stopped
+
     volumes:
       - mysql_team_data:/var/lib/mysql
     environment:
@@ -19,6 +22,8 @@ services:
     image: mongo:latest
     ports:
       - 27018:27017
+    restart: unless-stopped
+      
     volumes:
       - mongodb_match_data:/data/db
 
@@ -26,6 +31,8 @@ services:
     image: mysql:latest
     ports:
       - 3307:3306
+    restart: unless-stopped
+
     volumes:
       - mysql_supporter_data:/var/lib/mysql
     environment:

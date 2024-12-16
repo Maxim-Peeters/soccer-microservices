@@ -19,7 +19,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class SupporterService {
     private final SupporterRepository supporterRepository;
-    private WebClient webClient;
+    private final WebClient webClient;
     @Value("${teamservice.baseurl}")
     private String teamServiceBaseUrl;
     @Value("${playerservice.baseurl}")
@@ -106,7 +106,7 @@ public class SupporterService {
                             .lastName("Lopez")
                             .birthDate(LocalDate.of(1993, 10, 8))
                             .email("jameslopez@example.com")
-                            .teamCode("b9e4d4b8-3c5a-4b5d-bae3-1f3c74d94c4")
+                            .teamCode("b9e4d4b8-3c5a-4b5d-bae3-1f3c74d94c4b")
                             .playerCode("d9e8f1b7-2c4a-4f6e-8b3d-7a9c5e1f8a2d")
                             .build(),
                     Supporter.builder()
@@ -138,7 +138,7 @@ public class SupporterService {
     }
     private PlayerResponse getPlayerByCode(String playerCode) {
         return webClient.get()
-                .uri("http://" + playerCode + "/api/players/by-id/" + playerCode)
+                .uri("http://" + playerServiceBaseUrl + "/api/players/by-id/" + playerCode)
                 .retrieve()
                 .bodyToMono(PlayerResponse.class)
                 .block();
