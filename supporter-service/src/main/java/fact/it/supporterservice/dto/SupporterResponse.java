@@ -12,13 +12,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SupporterResponse {
-    private Long id;
-
+    private String supporterCode;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private String email;
-    private String clubName;
-    private String favoritePlayer;
+    private TeamResponse teamName;
+    private PlayerResponse favoritePlayer;
 }
 

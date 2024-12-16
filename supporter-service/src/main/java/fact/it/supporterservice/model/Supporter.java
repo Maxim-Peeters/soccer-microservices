@@ -16,10 +16,11 @@ public class Supporter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String supporterCode;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private String email;
-    private String clubName;
-    private String favoritePlayer;
+    private String teamCode;
+    private String playerCode;
 }

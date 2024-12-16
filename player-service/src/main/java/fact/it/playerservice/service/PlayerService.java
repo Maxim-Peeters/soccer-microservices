@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -50,10 +51,10 @@ public class PlayerService {
                             .teamCode("a7b9c4d6-2e1a-489c-8f9e-3b4d6f7a8c9e") // Liverpool FC
                             .build(),
                     Player.builder()
-                            .firstName("Kevin")
-                            .lastName("De Bruyne")
-                            .position("Midfielder")
-                            .birthDate(LocalDate.of(1991, 6, 28))
+                            .firstName("Marcus")
+                            .lastName("Rashford")
+                            .position("Attacker")
+                            .birthDate(LocalDate.of(1997, 10, 31))
                             .nationality("Belgian")
                             .playerCode("d1c8e7f9-3b4d-4c2a-8e1f-7a5d9f2b6e8c")
                             .teamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56") // Manchester United
@@ -118,6 +119,10 @@ public class PlayerService {
     public List<PlayerResponse> getPlayersByTeamCode(String teamCode){
         return playerRepository.findPlayersByTeamCode(teamCode).get().stream().map(this::mapToPlayerResponse).toList();
 
+    }
+    public PlayerResponse getPlayerByPlayerCode(String teamCode) {
+        Optional<Player> team = playerRepository.findPlayerByPlayerCode(teamCode);
+        return team.map(this::mapToPlayerResponse).orElse(null);
     }
     private PlayerResponse mapToPlayerResponse(Player player){
         return PlayerResponse.builder()

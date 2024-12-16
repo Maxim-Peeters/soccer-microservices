@@ -38,8 +38,8 @@ public class MatchService {
                             .build(),
                     Match.builder()
                             .matchCode(UUID.randomUUID().toString())
-                            .homeTeamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56") // Manchester City
-                            .awayTeamCode("a7b9c4d6-2e1a-489c-8f9e-3b4d6f7a8c9e") // Liverpool
+                            .homeTeamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56") // Manchester United (changed name, code stays same)
+                            .awayTeamCode("a7b9c4d6-2e1a-489c-8f9e-3b4d6f7a8c9e") // Liverpool FC
                             .dateTime(LocalDateTime.of(2023, 12, 16, 18, 30))
                             .location("Etihad Stadium")
                             .homeTeamScore(1)
@@ -48,7 +48,7 @@ public class MatchService {
                     Match.builder()
                             .matchCode(UUID.randomUUID().toString())
                             .homeTeamCode("d0934c69-85a3-4638-947c-df4f3c8b7dc9") // Bayern Munich
-                            .awayTeamCode("f1a6e5d4-6c7d-4b8f-9a1b-2d3c5e7f9d1e") // Borussia Dortmund
+                            .awayTeamCode("f1a6e5d4-6c7d-4b8f-9a1b-2d3c5e7f9d1e") // Juventus
                             .dateTime(LocalDateTime.of(2023, 12, 17, 15, 45))
                             .location("Allianz Arena")
                             .homeTeamScore(4)
@@ -56,8 +56,8 @@ public class MatchService {
                             .build(),
                     Match.builder()
                             .matchCode(UUID.randomUUID().toString())
-                            .homeTeamCode("b4c6d7e8-1f9a-4c3d-8e1b-2c5a6f7e8b9c") // Chelsea
-                            .awayTeamCode("c9d8e7f6-3a2b-489c-9e4b-6d7a5f8b1c2d") // Arsenal
+                            .homeTeamCode("b4c6d7e8-1f9a-4c3d-8e1b-2c5a6f7e8b9c") // Chelsea FC
+                            .awayTeamCode("c9d8e7f6-3a2b-489c-9e4b-6d7a5f8b1c2d") // Arsenal FC
                             .dateTime(LocalDateTime.of(2023, 12, 18, 16, 0))
                             .location("Stamford Bridge")
                             .homeTeamScore(0)
@@ -66,7 +66,7 @@ public class MatchService {
                     Match.builder()
                             .matchCode(UUID.randomUUID().toString())
                             .homeTeamCode("e4f8bc7b-b9d8-4c19-a91d-0b31a2c8e9b2") // PSG
-                            .awayTeamCode("d8e7b1f9-6c3a-4f2e-8d7c-9a1b5e3f6a8d") // Marseille
+                            .awayTeamCode("d8e7f9a6-1b4d-4c2f-8e3a-9c5d7f1b2e6a") // AC Milan
                             .dateTime(LocalDateTime.of(2023, 12, 19, 21, 0))
                             .location("Parc des Princes")
                             .homeTeamScore(3)

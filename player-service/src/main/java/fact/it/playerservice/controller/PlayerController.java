@@ -5,6 +5,7 @@ import fact.it.playerservice.model.Player;
 import fact.it.playerservice.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,5 +24,17 @@ public class PlayerController {
     @ResponseStatus(HttpStatus.OK)
     public List<PlayerResponse> getPlayersByTeamCode(@RequestParam String teamCode){
         return playerService.getPlayersByTeamCode(teamCode);
+    }
+
+    @GetMapping("/by-id/{playerCode}")
+    @ResponseStatus(HttpStatus.OK)
+
+    public ResponseEntity<PlayerResponse> getPlayerByPlayerCode(@PathVariable String playerCode) {
+        PlayerResponse playerResponse = playerService.getPlayerByPlayerCode(playerCode);
+        if (playerResponse != null) {
+            return ResponseEntity.ok(playerResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

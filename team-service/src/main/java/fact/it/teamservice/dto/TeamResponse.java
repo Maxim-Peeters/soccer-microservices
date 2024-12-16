@@ -12,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class TeamResponse {
-    private Long id;
     private String teamCode;
     private String name;
     private String city;
