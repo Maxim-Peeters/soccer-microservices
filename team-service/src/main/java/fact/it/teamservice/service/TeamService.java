@@ -1,6 +1,7 @@
 package fact.it.teamservice.service;
 
 import fact.it.teamservice.dto.PlayerResponse;
+import fact.it.teamservice.dto.TeamRequest;
 import fact.it.teamservice.dto.TeamResponse;
 import fact.it.teamservice.model.Team;
 import fact.it.teamservice.repository.TeamRepository;
@@ -13,6 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -44,25 +46,66 @@ public class TeamService {
         }
     }
 
-
-
-
-    public List<TeamResponse> getAllTeams(){
+    public List<TeamResponse> getAllTeams() {
         List<Team> teams = teamRepository.findAll();
         return teams.stream().map(this::mapToTeamResponse).toList();
     }
+
     public TeamResponse getTeamByTeamCode(String teamCode) {
         Optional<Team> team = teamRepository.findTeamByTeamCode(teamCode);
         return team.map(this::mapToTeamResponse).orElse(null);
     }
 
+    public TeamResponse createTeam(TeamRequest teamRequest) {
+        Team team = Team.builder()
+                .name(teamRequest.getName())
+                .city(teamRequest.getCity())
+                .country(teamRequest.getCountry())
+                .teamCode(UUID.randomUUID().toString())
+                .build();
+        Team savedTeam = teamRepository.save(team);
+        return mapToTeamResponse(savedTeam);
+    }
+
+    public TeamResponse editTeam(String teamCode, TeamRequest teamRequest) {
+        Optional<Team> optionalTeam = teamRepository.findTeamByTeamCode(teamCode);
+        if (optionalTeam.isPresent()) {
+            Team team = optionalTeam.get();
+
+            if (teamRequest.getName() != null) {
+                team.setName(teamRequest.getName());
+            }
+            if (teamRequest.getCity() != null) {
+                team.setCity(teamRequest.getCity());
+            }
+            if (teamRequest.getCountry() != null) {
+                team.setCountry(teamRequest.getCountry());
+            }
+
+            Team updatedTeam = teamRepository.save(team);
+            return mapToTeamResponse(updatedTeam);
+        } else {
+            return null;
+        }
+    }
+
+    public boolean removeTeam(String teamCode) {
+        Optional<Team> optionalTeam = teamRepository.findTeamByTeamCode(teamCode);
+        if (optionalTeam.isPresent()) {
+            teamRepository.delete(optionalTeam.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private TeamResponse mapToTeamResponse(Team team) {
         List<PlayerResponse> players;
         players = webClient.get()
-                .uri("http://"+playerServiceBaseurl+"/api/players/team",uriBuilder -> uriBuilder
+                .uri("http://" + playerServiceBaseurl + "/api/players/team", uriBuilder -> uriBuilder
                         .queryParam("teamCode", team.getTeamCode())
                         .build())
-        .retrieve()
+                .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<PlayerResponse>>() {
                 })
                 .block();
