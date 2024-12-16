@@ -15,4 +15,5 @@ public class TeamResponse {
     private String name;
     private String city;
     private String country;
+
 }

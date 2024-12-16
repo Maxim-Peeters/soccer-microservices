@@ -48,8 +48,8 @@ public class TeamService {
 
 
     public List<TeamResponse> getAllTeams(){
-        List<Team> events = teamRepository.findAll();
-        return events.stream().map(this::mapToTeamResponse).toList();
+        List<Team> teams = teamRepository.findAll();
+        return teams.stream().map(this::mapToTeamResponse).toList();
     }
     public TeamResponse getTeamByTeamCode(String teamCode) {
         Optional<Team> team = teamRepository.findTeamByTeamCode(teamCode);

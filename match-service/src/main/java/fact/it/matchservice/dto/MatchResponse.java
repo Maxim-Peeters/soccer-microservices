@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MatchResponse {
     private String matchCode;
-    private TeamResponse homeTeam; // Can be team ID or name
-    private TeamResponse awayTeam; // Can be team ID or name
+    private TeamResponse homeTeam;
+    private TeamResponse awayTeam;
     private LocalDateTime dateTime;
     private String location;
     private Integer homeTeamScore;

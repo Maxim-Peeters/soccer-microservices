@@ -21,11 +21,15 @@ public class TeamController {
     public List<TeamResponse> getAllTeams(){return teamService.getAllTeams();}
 
     @GetMapping("/by-id/{teamCode}")
+    @ResponseStatus(HttpStatus.OK)
+
     public ResponseEntity<TeamResponse> getTeamByTeamCode(@PathVariable String teamCode) {
-        TeamResponse team = teamService.getTeamByTeamCode(teamCode);
-        if (team != null) {
-            return new ResponseEntity<>(team, HttpStatus.OK);
+        TeamResponse teamResponse = teamService.getTeamByTeamCode(teamCode);
+        if (teamResponse != null) {
+            return ResponseEntity.ok(teamResponse);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 }
