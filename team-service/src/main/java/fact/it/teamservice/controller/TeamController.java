@@ -16,7 +16,7 @@ import java.util.List;
 public class TeamController {
     private final TeamService teamService;
 
-    @GetMapping("/all")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<TeamResponse> getAllTeams(){return teamService.getAllTeams();}
 

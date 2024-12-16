@@ -14,7 +14,7 @@ import java.util.List;
 public class MatchController {
     private final MatchService matchService;
 
-    @GetMapping("/all")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<MatchResponse> getAllMatches(){return matchService.getAllMatches();}
 
