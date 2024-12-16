@@ -32,7 +32,7 @@ spring:
             - Path=/players
             - Method=GET
           filters:
-            - SetPath=/api/players/all
+            - SetPath=/api/players
 
         - id: team-service
           uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
@@ -40,7 +40,7 @@ spring:
             - Path=/teams
             - Method=GET
           filters:
-            - SetPath=/api/teams/all
+            - SetPath=/api/teams
 
         - id: match-service
           uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
@@ -48,7 +48,7 @@ spring:
             - Path=/matches
             - Method=GET
           filters:
-            - SetPath=/api/matches/all
+            - SetPath=/api/matches
 
         - id: supporter-service
           uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
@@ -56,4 +56,4 @@ spring:
             - Path=/supporters
             - Method=GET
           filters:
-            - SetPath=/api/supporters/all
+            - SetPath=/api/supporters

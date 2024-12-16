@@ -17,7 +17,7 @@ import java.util.List;
 public class SupporterController {
     private final SupporterService supporterService;
 
-    @GetMapping("/all")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<SupporterResponse> getAllSupporters(){
         return supporterService.getAllSupporters();

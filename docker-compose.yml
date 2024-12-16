@@ -1,4 +1,16 @@
 services:
+  soccer-frontend:
+    build:
+      context: ./soccer-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    restart: unless-stopped
+    environment:
+      REACT_APP_API_GATEWAY_URL: api-gateway:8084
+    depends_on:
+      - api-gateway
+
   mongo-player:
     image: mongo:latest
     ports:

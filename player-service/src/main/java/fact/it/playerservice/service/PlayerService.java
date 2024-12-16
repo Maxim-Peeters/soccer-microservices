@@ -5,7 +5,6 @@ import fact.it.playerservice.model.Player;
 import fact.it.playerservice.repository.PlayerRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,7 +54,7 @@ public class PlayerService {
                             .lastName("Rashford")
                             .position("Attacker")
                             .birthDate(LocalDate.of(1997, 10, 31))
-                            .nationality("Belgian")
+                            .nationality("English")
                             .playerCode("d1c8e7f9-3b4d-4c2a-8e1f-7a5d9f2b6e8c")
                             .teamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56") // Manchester United
                             .build(),
