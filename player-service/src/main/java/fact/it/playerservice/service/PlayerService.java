@@ -1,5 +1,6 @@
 package fact.it.playerservice.service;
 
+import fact.it.playerservice.dto.PlayerRequest;
 import fact.it.playerservice.dto.PlayerResponse;
 import fact.it.playerservice.model.Player;
 import fact.it.playerservice.repository.PlayerRepository;
@@ -11,13 +12,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
-
     private final PlayerRepository playerRepository;
-
 
     @PostConstruct
     public void loadData() {
@@ -111,7 +111,6 @@ public class PlayerService {
         }
     }
 
-
     public List<PlayerResponse> getAllPlayers(){
         List<Player> players = playerRepository.findAll();
         return players.stream().map(this::mapToPlayerResponse).toList();
@@ -124,6 +123,62 @@ public class PlayerService {
         Optional<Player> team = playerRepository.findPlayerByPlayerCode(teamCode);
         return team.map(this::mapToPlayerResponse).orElse(null);
     }
+
+    public PlayerResponse createPlayer(PlayerRequest playerRequest) {
+        Player player = Player.builder()
+                .firstName(playerRequest.getFirstName())
+                .lastName(playerRequest.getLastName())
+                .position(playerRequest.getPosition())
+                .teamCode(playerRequest.getTeamCode())
+                .birthDate(playerRequest.getBirthDate())
+                .nationality(playerRequest.getNationality())
+                .playerCode(UUID.randomUUID().toString())
+                .build();
+        Player savedPlayer = playerRepository.save(player);
+        return mapToPlayerResponse(savedPlayer);
+    }
+
+    public PlayerResponse editPlayer(String playerCode, PlayerRequest playerRequest) {
+        Optional<Player> optionalPlayer = playerRepository.findPlayerByPlayerCode(playerCode);
+        if (optionalPlayer.isPresent()) {
+            Player player = optionalPlayer.get();
+
+            if (playerRequest.getFirstName() != null) {
+                player.setFirstName(playerRequest.getFirstName());
+            }
+            if (playerRequest.getLastName() != null) {
+                player.setLastName(playerRequest.getLastName());
+            }
+            if (playerRequest.getPosition() != null) {
+                player.setPosition(playerRequest.getPosition());
+            }
+            if (playerRequest.getTeamCode() != null) {
+                player.setTeamCode(playerRequest.getTeamCode());
+            }
+            if (playerRequest.getBirthDate() != null) {
+                player.setBirthDate(playerRequest.getBirthDate());
+            }
+            if (playerRequest.getNationality() != null) {
+                player.setNationality(playerRequest.getNationality());
+            }
+
+            Player updatedPlayer = playerRepository.save(player);
+            return mapToPlayerResponse(updatedPlayer);
+        } else {
+            return null;
+        }
+    }
+
+    public boolean removePlayer(String playerCode) {
+        Optional<Player> optionalPlayer = playerRepository.findPlayerByPlayerCode(playerCode);
+        if (optionalPlayer.isPresent()) {
+            playerRepository.delete(optionalPlayer.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private PlayerResponse mapToPlayerResponse(Player player){
         return PlayerResponse.builder()
                 .playerCode(player.getPlayerCode())
