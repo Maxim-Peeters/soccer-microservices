@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class TeamRequest {
+    private String teamCode;
     private String name;
     private String city;
     private String country;
-    private List<String> driverCodes;
 }

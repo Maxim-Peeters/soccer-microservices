@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class TeamResponse {
-    private Long id;
+    private String teamCode;
     private String name;
     private String city;
     private String country;
-    private String teamCodes;
 }

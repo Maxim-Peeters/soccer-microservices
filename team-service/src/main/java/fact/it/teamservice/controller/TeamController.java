@@ -5,6 +5,7 @@ import fact.it.teamservice.dto.TeamResponse;
 import fact.it.teamservice.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +20,12 @@ public class TeamController {
     @ResponseStatus(HttpStatus.OK)
     public List<TeamResponse> getAllTeams(){return teamService.getAllTeams();}
 
-    @GetMapping("/match")
-    @ResponseStatus(HttpStatus.OK)
-    public List<TeamResponse> getTeamsByMatchCode(@RequestParam String matchCode){
-        return teamService.getTeamsByMatchCode(matchCode);
+    @GetMapping("/by-id/{teamCode}")
+    public ResponseEntity<TeamResponse> getTeamByTeamCode(@PathVariable String teamCode) {
+        TeamResponse team = teamService.getTeamByTeamCode(teamCode);
+        if (team != null) {
+            return new ResponseEntity<>(team, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

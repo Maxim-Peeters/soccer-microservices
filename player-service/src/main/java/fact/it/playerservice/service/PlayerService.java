@@ -28,8 +28,8 @@ public class PlayerService {
                             .position("Forward")
                             .birthDate(LocalDate.of(1987, 6, 24))
                             .nationality("Argentinian")
-                            .playerCode("FWD-ARG-001")
-                            .teamCode("FCB-ESP-001") // FC Barcelona
+                            .playerCode("c1f8e5d4-9a3d-4b8e-8f3a-2c6d7b1e9f4c")
+                            .teamCode("b9e4d4b8-3c5a-4b5d-bae3-1f3c74d94c4b") // FC Barcelona
                             .build(),
                     Player.builder()
                             .firstName("Cristiano")
@@ -37,8 +37,8 @@ public class PlayerService {
                             .position("Forward")
                             .birthDate(LocalDate.of(1985, 2, 5))
                             .nationality("Portuguese")
-                            .playerCode("FWD-POR-002")
-                            .teamCode("RM-ESP-002") // Real Madrid
+                            .playerCode("a5e7c8d4-3b9a-4f6e-9c3d-6d1a2f8b7e9c")
+                            .teamCode("a5a0e8e4-1a2b-4f6c-8e3e-cd1a2f9b28e6") // Real Madrid
                             .build(),
                     Player.builder()
                             .firstName("Virgil")
@@ -46,8 +46,8 @@ public class PlayerService {
                             .position("Defender")
                             .birthDate(LocalDate.of(1991, 7, 8))
                             .nationality("Dutch")
-                            .playerCode("DEF-NLD-003")
-                            .teamCode("LIV-ENG-007") // Liverpool FC
+                            .playerCode("f3a6b8e9-2c7d-4b9f-8d3a-9e5c1f7a2b4d")
+                            .teamCode("a7b9c4d6-2e1a-489c-8f9e-3b4d6f7a8c9e") // Liverpool FC
                             .build(),
                     Player.builder()
                             .firstName("Kevin")
@@ -55,8 +55,8 @@ public class PlayerService {
                             .position("Midfielder")
                             .birthDate(LocalDate.of(1991, 6, 28))
                             .nationality("Belgian")
-                            .playerCode("MID-BEL-004")
-                            .teamCode("MC-ENG-011") // Manchester City
+                            .playerCode("d1c8e7f9-3b4d-4c2a-8e1f-7a5d9f2b6e8c")
+                            .teamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56") // Manchester United
                             .build(),
                     Player.builder()
                             .firstName("Kylian")
@@ -64,8 +64,8 @@ public class PlayerService {
                             .position("Forward")
                             .birthDate(LocalDate.of(1998, 12, 20))
                             .nationality("French")
-                            .playerCode("FWD-FRA-005")
-                            .teamCode("PSG-FRA-005") // Paris Saint-Germain
+                            .playerCode("e4f8d1a6-9c3a-4b8e-8f7c-1d2b6a9e5f3c")
+                            .teamCode("e4f8bc7b-b9d8-4c19-a91d-0b31a2c8e9b2") // PSG
                             .build(),
                     Player.builder()
                             .firstName("Manuel")
@@ -73,8 +73,8 @@ public class PlayerService {
                             .position("Goalkeeper")
                             .birthDate(LocalDate.of(1986, 3, 27))
                             .nationality("German")
-                            .playerCode("GK-DEU-006")
-                            .teamCode("BAYERN-DEU-004") // Bayern Munich
+                            .playerCode("d8e7b1f9-6c3a-4f2e-8d7c-9a1b5e3f6a8d")
+                            .teamCode("d0934c69-85a3-4638-947c-df4f3c8b7dc9") // Bayern
                             .build(),
                     Player.builder()
                             .firstName("Sergio")
@@ -82,17 +82,8 @@ public class PlayerService {
                             .position("Defender")
                             .birthDate(LocalDate.of(1986, 3, 30))
                             .nationality("Spanish")
-                            .playerCode("DEF-ESP-007")
-                            .teamCode("RM-ESP-002") // Real Madrid
-                            .build(),
-                    Player.builder()
-                            .firstName("Luka")
-                            .lastName("Modric")
-                            .position("Midfielder")
-                            .birthDate(LocalDate.of(1985, 9, 9))
-                            .nationality("Croatian")
-                            .playerCode("MID-CRO-008")
-                            .teamCode("RM-ESP-002") // Real Madrid
+                            .playerCode("f1a6e9b8-4c3d-2f7e-8d1b-9a5d3c7e6f8b")
+                            .teamCode("a5a0e8e4-1a2b-4f6c-8e3e-cd1a2f9b28e6") // Real Madrid
                             .build(),
                     Player.builder()
                             .firstName("Neymar")
@@ -100,8 +91,8 @@ public class PlayerService {
                             .position("Forward")
                             .birthDate(LocalDate.of(1992, 2, 5))
                             .nationality("Brazilian")
-                            .playerCode("FWD-BRA-009")
-                            .teamCode("PSG-FRA-005") // Paris Saint-Germain
+                            .playerCode("e9f7c1a6-3d8b-4b2e-8f3c-6a9d5e7b1f4d")
+                            .teamCode("e4f8bc7b-b9d8-4c19-a91d-0b31a2c8e9b2") // PSG
                             .build(),
                     Player.builder()
                             .firstName("Robert")
@@ -109,15 +100,16 @@ public class PlayerService {
                             .position("Forward")
                             .birthDate(LocalDate.of(1988, 8, 21))
                             .nationality("Polish")
-                            .playerCode("FWD-POL-010")
-                            .teamCode("BAYERN-DEU-004") // Bayern Munich
+                            .playerCode("d9e8f1b7-2c4a-4f6e-8b3d-7a9c5e1f8a2d")
+                            .teamCode("d0934c69-85a3-4638-947c-df4f3c8b7dc9") // Bayern
                             .build()
             );
 
             playerRepository.saveAll(players);
-            System.out.println("10 players have been saved to the database.");
+            System.out.println("10 players have been saved to the database with UUID player codes.");
         }
     }
+
 
     public List<PlayerResponse> getAllPlayers(){
         List<Player> players = playerRepository.findAll();
@@ -129,7 +121,6 @@ public class PlayerService {
     }
     private PlayerResponse mapToPlayerResponse(Player player){
         return PlayerResponse.builder()
-                .id(player.getId())
                 .playerCode(player.getPlayerCode())
                 .firstName(player.getFirstName())
                 .lastName(player.getLastName())

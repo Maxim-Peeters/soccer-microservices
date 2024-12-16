@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,22 +27,23 @@ public class TeamService {
     public void loadData() {
         if (teamRepository.count() <= 0) {
             List<Team> teams = List.of(
-                    Team.builder().name("FC Barcelona").city("Barcelona").country("Spain").teamCode("FCB-ESP-001").build(),
-                    Team.builder().name("Real Madrid").city("Madrid").country("Spain").teamCode("RM-ESP-002").build(),
-                    Team.builder().name("Manchester United").city("Manchester").country("England").teamCode("MUFC-ENG-003").build(),
-                    Team.builder().name("Bayern Munich").city("Munich").country("Germany").teamCode("BAYERN-DEU-004").build(),
-                    Team.builder().name("Paris Saint-Germain").city("Paris").country("France").teamCode("PSG-FRA-005").build(),
-                    Team.builder().name("Juventus").city("Turin").country("Italy").teamCode("JUVE-ITA-006").build(),
-                    Team.builder().name("Liverpool FC").city("Liverpool").country("England").teamCode("LIV-ENG-007").build(),
-                    Team.builder().name("Chelsea FC").city("London").country("England").teamCode("CHE-ENG-008").build(),
-                    Team.builder().name("Arsenal FC").city("London").country("England").teamCode("ARS-ENG-009").build(),
-                    Team.builder().name("AC Milan").city("Milan").country("Italy").teamCode("ACM-ITA-010").build()
+                    Team.builder().name("FC Barcelona").city("Barcelona").country("Spain").teamCode("b9e4d4b8-3c5a-4b5d-bae3-1f3c74d94c4b").build(),
+                    Team.builder().name("Real Madrid").city("Madrid").country("Spain").teamCode("a5a0e8e4-1a2b-4f6c-8e3e-cd1a2f9b28e6").build(),
+                    Team.builder().name("Manchester United").city("Manchester").country("England").teamCode("c7d2f312-2b8d-4014-9028-637fe3a49e56").build(),
+                    Team.builder().name("Bayern Munich").city("Munich").country("Germany").teamCode("d0934c69-85a3-4638-947c-df4f3c8b7dc9").build(),
+                    Team.builder().name("Paris Saint-Germain").city("Paris").country("France").teamCode("e4f8bc7b-b9d8-4c19-a91d-0b31a2c8e9b2").build(),
+                    Team.builder().name("Juventus").city("Turin").country("Italy").teamCode("f1a6e5d4-6c7d-4b8f-9a1b-2d3c5e7f9d1e").build(),
+                    Team.builder().name("Liverpool FC").city("Liverpool").country("England").teamCode("a7b9c4d6-2e1a-489c-8f9e-3b4d6f7a8c9e").build(),
+                    Team.builder().name("Chelsea FC").city("London").country("England").teamCode("b4c6d7e8-1f9a-4c3d-8e1b-2c5a6f7e8b9c").build(),
+                    Team.builder().name("Arsenal FC").city("London").country("England").teamCode("c9d8e7f6-3a2b-489c-9e4b-6d7a5f8b1c2d").build(),
+                    Team.builder().name("AC Milan").city("Milan").country("Italy").teamCode("d8e7f9a6-1b4d-4c2f-8e3a-9c5d7f1b2e6a").build()
             );
 
             teamRepository.saveAll(teams);
-            System.out.println("10 teams have been saved to the database.");
+            System.out.println("10 teams have been saved to the database with UUID team codes.");
         }
     }
+
 
 
 
@@ -49,9 +51,11 @@ public class TeamService {
         List<Team> events = teamRepository.findAll();
         return events.stream().map(this::mapToTeamResponse).toList();
     }
-    public TeamResponse getTeamsByMatchCode(String matchCode){
-       return teamRepository.findTeamsByMatchCode(matchCode).get().stream().map(this::mapToTeamResponse).toList();
+    public TeamResponse getTeamByTeamCode(String teamCode) {
+        Optional<Team> team = teamRepository.findTeamByTeamCode(teamCode);
+        return team.map(this::mapToTeamResponse).orElse(null);
     }
+
     private TeamResponse mapToTeamResponse(Team team) {
         List<PlayerResponse> players;
         players = webClient.get()
@@ -64,7 +68,7 @@ public class TeamService {
                 .block();
 
         return TeamResponse.builder()
-                .id(team.getId())
+                .teamCode(team.getTeamCode())
                 .name(team.getName())
                 .city(team.getCity())
                 .country(team.getCountry())

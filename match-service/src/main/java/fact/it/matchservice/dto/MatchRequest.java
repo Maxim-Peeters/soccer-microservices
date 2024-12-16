@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MatchRequest {
-    private String homeTeam; // Can be team ID or name
-    private String awayTeam; // Can be team ID or name
+    private String homeTeamCode; // Can be team ID or name
+    private String awayTeamCode; // Can be team ID or name
     private LocalDateTime dateTime;
     private String location;
     private Integer homeTeamScore;

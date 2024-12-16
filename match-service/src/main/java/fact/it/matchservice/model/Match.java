@@ -13,8 +13,9 @@ import java.time.LocalDateTime;
 @Data
 public class Match {
     private String id;
-    private String homeTeam; // Can be team ID or name
-    private String awayTeam; // Can be team ID or name
+    private String matchCode;
+    private String homeTeamCode; // Can be team ID or name
+    private String awayTeamCode; // Can be team ID or name
     private LocalDateTime dateTime;
     private String location;
     private Integer homeTeamScore;

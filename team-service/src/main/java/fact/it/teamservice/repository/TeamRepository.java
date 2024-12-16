@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
-    Optional<List<Team>> findTeamsByMatchCode(String matchCode);
+    Optional<Team> findTeamByTeamCode(String driverCode);
 
 }

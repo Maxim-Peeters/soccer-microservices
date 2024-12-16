@@ -12,11 +12,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerResponse {
-    private String id;
     private String playerCode;
     private String firstName;
     private String lastName;
-    private String teamCode;
     private String position;
     private LocalDate birthDate;
     private String nationality;
