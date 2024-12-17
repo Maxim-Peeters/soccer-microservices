@@ -20,6 +20,17 @@ public class MatchController {
     @ResponseStatus(HttpStatus.OK)
     public List<MatchResponse> getAllMatches(){return matchService.getAllMatches();}
 
+    @GetMapping("/by-id/{matchCode}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<MatchResponse> getMatchByMatchCode(@PathVariable String matchCode) {
+        MatchResponse matchResponse = matchService.getMatchByMatchCode(matchCode);
+        if (matchResponse != null) {
+            return ResponseEntity.ok(matchResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<MatchResponse> createMatch(@RequestBody MatchRequest matchRequest) {
