@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PlayerListComponent from "../components/players/PlayerList";
 import { useAuth } from "../contexts/AuthContext";
 
-function Players() {
+function PlayersPage() {
   const { token } = useAuth();
   const navigate = useNavigate();
 
@@ -12,11 +12,6 @@ function Players() {
       navigate("/login");
     }
   }, [token, navigate]);
-
-  if (!token) {
-    return null; // or a loading spinner
-  }
-
   return (
     <div>
       <h1>Players</h1>
@@ -25,5 +20,5 @@ function Players() {
   );
 }
 
-export default Players;
+export default PlayersPage;
 

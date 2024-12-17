@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
-export const GoogleAuthButton = () => {
+export const GoogleAuthButtonComponent = () => {
   const [error, setError] = useState<string | null>(null);
   const { setToken } = useAuth();
 

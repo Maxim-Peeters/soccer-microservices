@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { GoogleAuthButton } from "../components/auth/GoogleAuthButton";
+import { GoogleAuthButtonComponent } from "../components/auth/GoogleAuthButton";
 import { useAuth } from "../contexts/AuthContext";
 
-function Login() {
+function LoginPage() {
   const { token } = useAuth();
   const navigate = useNavigate();
 
@@ -16,10 +16,10 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
-      <GoogleAuthButton />
+      <GoogleAuthButtonComponent />
     </div>
   );
 }
 
-export default Login;
+export default LoginPage;
 
