@@ -45,10 +45,10 @@ public class PlayerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPlayer);
     }
 
-    @PutMapping("/edit/{playerId}")
+    @PutMapping("/edit/{playerCode}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<PlayerResponse> editPlayer(@PathVariable String playerId, @RequestBody PlayerRequest playerRequest) {
-        PlayerResponse updatedPlayer = playerService.editPlayer(playerId, playerRequest);
+    public ResponseEntity<PlayerResponse> editPlayer(@PathVariable String playerCode, @RequestBody PlayerRequest playerRequest) {
+        PlayerResponse updatedPlayer = playerService.editPlayer(playerCode, playerRequest);
         if (updatedPlayer != null) {
             return ResponseEntity.ok(updatedPlayer);
         } else {
@@ -56,10 +56,10 @@ public class PlayerController {
         }
     }
 
-    @DeleteMapping("/remove/{playerId}")
+    @DeleteMapping("/remove/{playerCode}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> removePlayer(@PathVariable String playerId) {
-        boolean isRemoved = playerService.removePlayer(playerId);
+    public ResponseEntity<Void> removePlayer(@PathVariable String playerCode) {
+        boolean isRemoved = playerService.removePlayer(playerCode);
         if (isRemoved) {
             return ResponseEntity.noContent().build();
         } else {

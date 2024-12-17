@@ -9,6 +9,5 @@ import java.util.Optional;
 
 public interface PlayerRepository extends MongoRepository<Player, String> {
     Optional<List<Player>> findPlayersByTeamCode(String teamCode);
-    Optional<Player> findPlayerByPlayerCode(String driverCode);
-
+    Optional<Player> findPlayerByPlayerCode(String playerCode);
 }

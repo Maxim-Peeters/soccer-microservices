@@ -1,5 +1,6 @@
 package fact.it.matchservice.service;
 
+import fact.it.matchservice.dto.MatchRequest;
 import fact.it.matchservice.dto.MatchResponse;
 import fact.it.matchservice.dto.TeamResponse;
 import fact.it.matchservice.model.Match;
@@ -12,7 +13,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
@@ -83,6 +86,55 @@ public class MatchService {
         List<Match> matches = matchRepository.findAll();
         return matches.stream().map(this::mapToMatchResponse).toList();
     }
+
+    public MatchResponse createMatch(MatchRequest matchRequest) {
+        Match match = Match.builder()
+                .matchCode(UUID.randomUUID().toString())
+                .homeTeamCode(matchRequest.getHomeTeamCode())
+                .awayTeamCode(matchRequest.getAwayTeamCode())
+                .dateTime(matchRequest.getDateTime())
+                .location(matchRequest.getLocation())
+                .homeTeamScore(matchRequest.getHomeTeamScore())
+                .awayTeamScore(matchRequest.getAwayTeamScore())
+                .build();
+
+        Match savedMatch = matchRepository.save(match);
+        return mapToMatchResponse(savedMatch);
+    }
+
+    // Edit an existing match
+    public MatchResponse editMatch(String matchCode, MatchRequest matchRequest) {
+        Match existingMatch = matchRepository.findMatchByMatchCode(matchCode)
+                .orElseThrow(() -> new RuntimeException("Match not found"));
+
+        updateIfNotNull(matchRequest.getHomeTeamCode(), existingMatch::setHomeTeamCode);
+        updateIfNotNull(matchRequest.getAwayTeamCode(), existingMatch::setAwayTeamCode);
+        updateIfNotNull(matchRequest.getDateTime(), existingMatch::setDateTime);
+        updateIfNotNull(matchRequest.getLocation(), existingMatch::setLocation);
+        updateIfNotNull(matchRequest.getHomeTeamScore(), existingMatch::setHomeTeamScore);
+        updateIfNotNull(matchRequest.getAwayTeamScore(), existingMatch::setAwayTeamScore);
+
+        Match updatedMatch = matchRepository.save(existingMatch);
+        return mapToMatchResponse(updatedMatch);
+    }
+
+    private <T> void updateIfNotNull(T value, Consumer<T> setter) {
+        if (value != null) {
+            setter.accept(value);
+        }
+    }
+
+    public boolean removeMatch(String matchCode) {
+        Optional<Match> optionalMatch = matchRepository.findMatchByMatchCode(matchCode);
+        if (optionalMatch.isPresent()) {
+            matchRepository.delete(optionalMatch.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     private TeamResponse getTeamByCode(String teamCode) {
         return webClient.get()
                 .uri("http://" + teamServiceBaseUrl + "/api/teams/by-id/" + teamCode)
