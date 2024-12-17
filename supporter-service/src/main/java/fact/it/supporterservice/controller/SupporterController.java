@@ -22,6 +22,17 @@ public class SupporterController {
         return supporterService.getAllSupporters();
     }
 
+    @GetMapping("/by-id/{supporterCode}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<SupporterResponse> getSupporterBySupporterCode(@PathVariable String supporterCode) {
+        SupporterResponse supporterResponse = supporterService.getSupporterBySupporterCode(supporterCode);
+        if (supporterResponse != null) {
+            return ResponseEntity.ok(supporterResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<SupporterResponse> createSupporter(@RequestBody SupporterRequest supporterRequest) {

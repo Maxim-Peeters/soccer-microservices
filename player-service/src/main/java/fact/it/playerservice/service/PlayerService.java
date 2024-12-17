@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
@@ -115,10 +116,15 @@ public class PlayerService {
         List<Player> players = playerRepository.findAll();
         return players.stream().map(this::mapToPlayerResponse).toList();
     }
-    public List<PlayerResponse> getPlayersByTeamCode(String teamCode){
-        return playerRepository.findPlayersByTeamCode(teamCode).get().stream().map(this::mapToPlayerResponse).toList();
 
+    public List<PlayerResponse> getPlayersByTeamCode(String teamCode) {
+        return playerRepository.findPlayersByTeamCode(teamCode)
+                .orElseThrow(() -> new NoSuchElementException("No players found for team code: " + teamCode))
+                .stream()
+                .map(this::mapToPlayerResponse)
+                .toList();
     }
+
     public PlayerResponse getPlayerByPlayerCode(String teamCode) {
         Optional<Player> team = playerRepository.findPlayerByPlayerCode(teamCode);
         return team.map(this::mapToPlayerResponse).orElse(null);

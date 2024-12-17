@@ -86,6 +86,11 @@ public class MatchService {
         return matches.stream().map(this::mapToMatchResponse).toList();
     }
 
+    public MatchResponse getMatchByMatchCode(String matchCode) {
+        Optional<Match> match = matchRepository.findMatchByMatchCode(matchCode);
+        return match.map(this::mapToMatchResponse).orElse(null);
+    }
+
     public MatchResponse createMatch(MatchRequest matchRequest) {
         Match match = Match.builder()
                 .matchCode(UUID.randomUUID().toString())
@@ -106,8 +111,9 @@ public class MatchService {
         Match existingMatch = matchRepository.findMatchByMatchCode(matchCode)
                 .orElseThrow(() -> new RuntimeException("Match not found"));
 
-        updateIfNotNull(matchRequest.getHomeTeamCode(), existingMatch::setHomeTeamCode);
-        updateIfNotNull(matchRequest.getAwayTeamCode(), existingMatch::setAwayTeamCode);
+        existingMatch.setHomeTeamCode(matchRequest.getHomeTeamCode());
+        existingMatch.setAwayTeamCode(matchRequest.getAwayTeamCode());
+
         updateIfNotNull(matchRequest.getDateTime(), existingMatch::setDateTime);
         updateIfNotNull(matchRequest.getLocation(), existingMatch::setLocation);
         updateIfNotNull(matchRequest.getHomeTeamScore(), existingMatch::setHomeTeamScore);
@@ -132,7 +138,6 @@ public class MatchService {
             return false;
         }
     }
-
 
     private TeamResponse getTeamByCode(String teamCode) {
         return webClient.get()
