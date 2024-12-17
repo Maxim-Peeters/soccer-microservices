@@ -25,7 +25,6 @@ public class MatchService {
     @Value("${teamservice.baseurl}")
     private String teamServiceBaseUrl;
 
-
     @PostConstruct
     public void loadData() {
         if (matchRepository.count() <= 0) {

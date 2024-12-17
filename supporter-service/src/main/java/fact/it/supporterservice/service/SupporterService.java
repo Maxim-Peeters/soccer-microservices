@@ -1,6 +1,7 @@
 package fact.it.supporterservice.service;
 
 import fact.it.supporterservice.dto.PlayerResponse;
+import fact.it.supporterservice.dto.SupporterRequest;
 import fact.it.supporterservice.dto.SupporterResponse;
 import fact.it.supporterservice.dto.TeamResponse;
 import fact.it.supporterservice.model.Supporter;
@@ -13,7 +14,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
@@ -129,6 +132,55 @@ public class SupporterService {
         List<Supporter> events = supporterRepository.findAll();
         return events.stream().map(this::mapToSupporterResponse).toList();
     }
+
+    public SupporterResponse createSupporter(SupporterRequest supporterRequest) {
+        Supporter supporter = Supporter.builder()
+                .supporterCode(UUID.randomUUID().toString())
+                .firstName(supporterRequest.getFirstName())
+                .lastName(supporterRequest.getLastName())
+                .birthDate(supporterRequest.getBirthDate())
+                .email(supporterRequest.getEmail())
+                .teamCode(supporterRequest.getClubName())
+                .playerCode(supporterRequest.getFavoritePlayer())
+                .build();
+
+        Supporter savedSupporter = supporterRepository.save(supporter);
+        return mapToSupporterResponse(savedSupporter);
+    }
+
+    // Edit an existing supporter
+    public SupporterResponse editSupporter(String supporterCode, SupporterRequest supporterRequest) {
+        Supporter existingSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode)
+                .orElseThrow(() -> new RuntimeException("Supporter not found"));
+
+        updateIfNotNull(supporterRequest.getFirstName(), existingSupporter::setFirstName);
+        updateIfNotNull(supporterRequest.getLastName(), existingSupporter::setLastName);
+        updateIfNotNull(supporterRequest.getBirthDate(), existingSupporter::setBirthDate);
+        updateIfNotNull(supporterRequest.getEmail(), existingSupporter::setEmail);
+        updateIfNotNull(supporterRequest.getClubName(), existingSupporter::setTeamCode);
+        updateIfNotNull(supporterRequest.getFavoritePlayer(), existingSupporter::setPlayerCode);
+
+        Supporter updatedSupporter = supporterRepository.save(existingSupporter);
+        return mapToSupporterResponse(updatedSupporter);
+    }
+
+    private <T> void updateIfNotNull(T value, Consumer<T> setter) {
+        if (value != null) {
+            setter.accept(value);
+        }
+    }
+
+    // Remove a supporter
+    public boolean removeSupporter(String supporterCode) {
+        Optional<Supporter> optionalSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode);
+        if (optionalSupporter.isPresent()) {
+            supporterRepository.delete(optionalSupporter.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private TeamResponse getTeamByCode(String teamCode) {
         return webClient.get()
                 .uri("http://" + teamServiceBaseUrl + "/api/teams/by-id/" + teamCode)
