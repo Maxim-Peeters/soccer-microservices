@@ -133,6 +133,11 @@ public class SupporterService {
         return events.stream().map(this::mapToSupporterResponse).toList();
     }
 
+    public SupporterResponse getSupporterBySupporterCode(String supporterCode) {
+        Optional<Supporter> supporter = supporterRepository.findSupporterBySupporterCode(supporterCode);
+        return supporter.map(this::mapToSupporterResponse).orElse(null);
+    }
+
     public SupporterResponse createSupporter(SupporterRequest supporterRequest) {
         Supporter supporter = Supporter.builder()
                 .supporterCode(UUID.randomUUID().toString())
@@ -140,8 +145,8 @@ public class SupporterService {
                 .lastName(supporterRequest.getLastName())
                 .birthDate(supporterRequest.getBirthDate())
                 .email(supporterRequest.getEmail())
-                .teamCode(supporterRequest.getClubName())
-                .playerCode(supporterRequest.getFavoritePlayer())
+                .teamCode(supporterRequest.getTeamCode())
+                .playerCode(supporterRequest.getPlayerCode())
                 .build();
 
         Supporter savedSupporter = supporterRepository.save(supporter);
@@ -157,8 +162,8 @@ public class SupporterService {
         updateIfNotNull(supporterRequest.getLastName(), existingSupporter::setLastName);
         updateIfNotNull(supporterRequest.getBirthDate(), existingSupporter::setBirthDate);
         updateIfNotNull(supporterRequest.getEmail(), existingSupporter::setEmail);
-        updateIfNotNull(supporterRequest.getClubName(), existingSupporter::setTeamCode);
-        updateIfNotNull(supporterRequest.getFavoritePlayer(), existingSupporter::setPlayerCode);
+        updateIfNotNull(supporterRequest.getTeamCode(), existingSupporter::setTeamCode);
+        updateIfNotNull(supporterRequest.getPlayerCode(), existingSupporter::setPlayerCode);
 
         Supporter updatedSupporter = supporterRepository.save(existingSupporter);
         return mapToSupporterResponse(updatedSupporter);

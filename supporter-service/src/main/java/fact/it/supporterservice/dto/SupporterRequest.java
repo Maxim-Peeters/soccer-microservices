@@ -16,6 +16,6 @@ public class SupporterRequest {
     private String lastName;
     private LocalDate birthDate;
     private String email;
-    private String clubName;
-    private String favoritePlayer;
+    private String teamCode;
+    private String playerCode;
 }
