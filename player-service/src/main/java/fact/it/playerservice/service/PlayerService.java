@@ -1,5 +1,6 @@
 package fact.it.playerservice.service;
 
+import fact.it.playerservice.dto.PlayerRequest;
 import fact.it.playerservice.dto.PlayerResponse;
 import fact.it.playerservice.model.Player;
 import fact.it.playerservice.repository.PlayerRepository;
@@ -10,13 +11,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
-
     private final PlayerRepository playerRepository;
-
 
     @PostConstruct
     public void loadData() {
@@ -110,7 +111,6 @@ public class PlayerService {
         }
     }
 
-
     public List<PlayerResponse> getAllPlayers(){
         List<Player> players = playerRepository.findAll();
         return players.stream().map(this::mapToPlayerResponse).toList();
@@ -123,6 +123,54 @@ public class PlayerService {
         Optional<Player> team = playerRepository.findPlayerByPlayerCode(teamCode);
         return team.map(this::mapToPlayerResponse).orElse(null);
     }
+
+    public PlayerResponse createPlayer(PlayerRequest playerRequest) {
+        Player player = Player.builder()
+                .firstName(playerRequest.getFirstName())
+                .lastName(playerRequest.getLastName())
+                .position(playerRequest.getPosition())
+                .teamCode(playerRequest.getTeamCode())
+                .birthDate(playerRequest.getBirthDate())
+                .nationality(playerRequest.getNationality())
+                .playerCode(UUID.randomUUID().toString())
+                .build();
+
+        Player savedPlayer = playerRepository.save(player);
+        return mapToPlayerResponse(savedPlayer);
+    }
+
+    public PlayerResponse editPlayer(String playerCode, PlayerRequest playerRequest) {
+        Player player = playerRepository.findPlayerByPlayerCode(playerCode)
+                .orElseThrow(() -> new RuntimeException("Player not found with code: " + playerCode));
+
+        updateIfNotNull(playerRequest.getFirstName(), player::setFirstName);
+        updateIfNotNull(playerRequest.getLastName(), player::setLastName);
+        updateIfNotNull(playerRequest.getPosition(), player::setPosition);
+        updateIfNotNull(playerRequest.getTeamCode(), player::setTeamCode);
+        updateIfNotNull(playerRequest.getBirthDate(), player::setBirthDate);
+        updateIfNotNull(playerRequest.getNationality(), player::setNationality);
+
+        Player updatedPlayer = playerRepository.save(player);
+        return mapToPlayerResponse(updatedPlayer);
+    }
+
+    private <T> void updateIfNotNull(T value, Consumer<T> setter) {
+        if (value != null) {
+            setter.accept(value);
+        }
+    }
+
+
+    public boolean removePlayer(String playerCode) {
+        Optional<Player> optionalPlayer = playerRepository.findPlayerByPlayerCode(playerCode);
+        if (optionalPlayer.isPresent()) {
+            playerRepository.delete(optionalPlayer.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private PlayerResponse mapToPlayerResponse(Player player){
         return PlayerResponse.builder()
                 .playerCode(player.getPlayerCode())

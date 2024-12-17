@@ -1,5 +1,6 @@
 package fact.it.playerservice.controller;
 
+import fact.it.playerservice.dto.PlayerRequest;
 import fact.it.playerservice.dto.PlayerResponse;
 import fact.it.playerservice.model.Player;
 import fact.it.playerservice.service.PlayerService;
@@ -29,11 +30,39 @@ public class PlayerController {
 
     @GetMapping("/by-id/{playerCode}")
     @ResponseStatus(HttpStatus.OK)
-
     public ResponseEntity<PlayerResponse> getPlayerByPlayerCode(@PathVariable String playerCode) {
         PlayerResponse playerResponse = playerService.getPlayerByPlayerCode(playerCode);
         if (playerResponse != null) {
             return ResponseEntity.ok(playerResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<PlayerResponse> createPlayer(@RequestBody PlayerRequest playerRequest) {
+        PlayerResponse createdPlayer = playerService.createPlayer(playerRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdPlayer);
+    }
+
+    @PutMapping("/edit/{playerCode}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<PlayerResponse> editPlayer(@PathVariable String playerCode, @RequestBody PlayerRequest playerRequest) {
+        PlayerResponse updatedPlayer = playerService.editPlayer(playerCode, playerRequest);
+        if (updatedPlayer != null) {
+            return ResponseEntity.ok(updatedPlayer);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/remove/{playerCode}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<Void> removePlayer(@PathVariable String playerCode) {
+        boolean isRemoved = playerService.removePlayer(playerCode);
+        if (isRemoved) {
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }
