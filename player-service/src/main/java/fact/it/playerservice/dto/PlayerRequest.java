@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class PlayerRequest {
     private String firstName;
-    private String playerCode;
     private String lastName;
     private String position;
     private String teamCode;
