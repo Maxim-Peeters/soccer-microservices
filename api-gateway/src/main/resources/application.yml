@@ -33,6 +33,8 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/players
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
 
         - id: team-service
           uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
@@ -41,6 +43,7 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/teams
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
         - id: match-service
           uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}

@@ -1,6 +1,6 @@
 import { PlayerResponse } from "../../dto/PlayerResponse";
 
-function PlayerCardComponent({player}: {player: PlayerResponse}){
+function PlayerCard({player}: {player: PlayerResponse}){
     return(
         <div key={player.playerCode}>
             {player.firstName}
@@ -11,4 +11,4 @@ function PlayerCardComponent({player}: {player: PlayerResponse}){
         </div>
     )
 }
-export default PlayerCardComponent;
+export default PlayerCard;
