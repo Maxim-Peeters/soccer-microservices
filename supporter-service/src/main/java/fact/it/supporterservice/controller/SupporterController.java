@@ -34,31 +34,27 @@ public class SupporterController {
     }
 
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<SupporterResponse> createSupporter(@RequestBody SupporterRequest supporterRequest) {
+    @ResponseStatus(HttpStatus.OK)
+    public String createSupporter(@RequestBody SupporterRequest supporterRequest) {
         SupporterResponse createdSupporter = supporterService.createSupporter(supporterRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdSupporter);
+        return ((createdSupporter != null) ? "Supporter " + createdSupporter.getFirstName() + " " + createdSupporter.getLastName()
+                + " is created successfully" : "Creating supporter failed");
     }
 
     @PutMapping("/edit/{supporterCode}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<SupporterResponse> editSupporter(@PathVariable String supporterCode, @RequestBody SupporterRequest supporterRequest) {
+    public String editSupporter(@PathVariable String supporterCode, @RequestBody SupporterRequest supporterRequest) {
         SupporterResponse updatedSupporter = supporterService.editSupporter(supporterCode, supporterRequest);
-        if (updatedSupporter != null) {
-            return ResponseEntity.ok(updatedSupporter);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ((updatedSupporter != null) ? "Supporter " + updatedSupporter.getFirstName() + " " + updatedSupporter.getLastName()
+                + " is edited successfully" : "Editing supporter failed");
     }
 
     @DeleteMapping("/remove/{supporterCode}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> removeSupporter(@PathVariable String supporterCode) {
-        boolean isRemoved = supporterService.removeSupporter(supporterCode);
-        if (isRemoved) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public String removeSupporter(@PathVariable String supporterCode) {
+        SupporterResponse deletedSupporter = supporterService.removeSupporter(supporterCode);
+        return ((deletedSupporter != null) ? "Supporter " + deletedSupporter.getFirstName() + " " + deletedSupporter.getLastName()
+                + " is removed successfully" : "Deleting supporter failed");
     }
+
 }
