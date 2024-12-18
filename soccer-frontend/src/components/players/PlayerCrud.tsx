@@ -29,7 +29,7 @@ function PlayerCrud() {
         // Fetch all teams
         const fetchedTeams = await TeamService.getAllTeams();
         setTeams(fetchedTeams);
-
+        console.log(teams);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch players or teams');
@@ -79,7 +79,7 @@ function PlayerCrud() {
                 <td className="px-6 py-4 text-sm">{`${player.firstName} ${player.lastName}`}</td>
                 <td className="px-6 py-4 text-sm">{player.position}</td>
                 <td className="px-6 py-4 text-sm">
-                {/* {teams.find(team => team.teamCode === player.teamCode)?.name || 'Team not found'} */}
+                  {teams.find(team => team.teamCode === player.teamCode)?.name}
                   </td>
                 <td className="px-6 py-4 text-sm">{new Date(player.birthDate).toLocaleDateString()}</td>
                 <td className="px-6 py-4 text-sm">{player.nationality}</td>

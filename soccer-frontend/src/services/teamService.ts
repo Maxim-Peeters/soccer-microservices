@@ -14,14 +14,6 @@ export default class TeamService{
         } catch (error) {
             throw new Error('Teams not found'); // Throw an error if there's a failure
           }
-    }
-    static async getTeamByTeamCode(teamCode: string): Promise<TeamResponse>{
-    try{
-        const response = await axios.get(`${baseUrl}/by-id/${teamCode}`)
-        return response.data;
-    } catch (error) {
-        throw new Error('Team not found'); // Throw an error if there's a failure
-      }
-
-    }
+        }
+    static async createTeam(resu: TeamResponse): Promise<TeamResponse> {
 }
