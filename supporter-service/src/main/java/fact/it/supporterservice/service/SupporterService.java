@@ -153,7 +153,6 @@ public class SupporterService {
         return mapToSupporterResponse(savedSupporter);
     }
 
-    // Edit an existing supporter
     public SupporterResponse editSupporter(String supporterCode, SupporterRequest supporterRequest) {
         Supporter existingSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode)
                 .orElseThrow(() -> new RuntimeException("Supporter not found"));
@@ -175,16 +174,14 @@ public class SupporterService {
         }
     }
 
-    // Remove a supporter
-    public boolean removeSupporter(String supporterCode) {
-        Optional<Supporter> optionalSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode);
-        if (optionalSupporter.isPresent()) {
-            supporterRepository.delete(optionalSupporter.get());
-            return true;
-        } else {
-            return false;
-        }
+    public SupporterResponse removeSupporter(String supporterCode) {
+        Supporter deletedSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode)
+                .orElseThrow(() -> new RuntimeException("Supporter not found with code: " + supporterCode));
+
+        supporterRepository.delete(deletedSupporter);
+        return mapToSupporterResponse(deletedSupporter);
     }
+
 
     private TeamResponse getTeamByCode(String teamCode) {
         return webClient.get()

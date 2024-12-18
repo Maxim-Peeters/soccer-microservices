@@ -111,9 +111,8 @@ public class MatchService {
         Match existingMatch = matchRepository.findMatchByMatchCode(matchCode)
                 .orElseThrow(() -> new RuntimeException("Match not found"));
 
-        existingMatch.setHomeTeamCode(matchRequest.getHomeTeamCode());
-        existingMatch.setAwayTeamCode(matchRequest.getAwayTeamCode());
-
+        updateIfNotNull(matchRequest.getHomeTeamCode(), existingMatch::setHomeTeamCode);
+        updateIfNotNull(matchRequest.getAwayTeamCode(), existingMatch::setAwayTeamCode);
         updateIfNotNull(matchRequest.getDateTime(), existingMatch::setDateTime);
         updateIfNotNull(matchRequest.getLocation(), existingMatch::setLocation);
         updateIfNotNull(matchRequest.getHomeTeamScore(), existingMatch::setHomeTeamScore);
@@ -129,14 +128,12 @@ public class MatchService {
         }
     }
 
-    public boolean removeMatch(String matchCode) {
-        Optional<Match> optionalMatch = matchRepository.findMatchByMatchCode(matchCode);
-        if (optionalMatch.isPresent()) {
-            matchRepository.delete(optionalMatch.get());
-            return true;
-        } else {
-            return false;
-        }
+    public MatchResponse removeMatch(String matchCode) {
+        Match deletedMatch = matchRepository.findMatchByMatchCode(matchCode)
+                .orElseThrow(() -> new RuntimeException("Match not found with code: " + matchCode));
+
+        matchRepository.delete(deletedMatch);
+        return mapToMatchResponse(deletedMatch);
     }
 
     private TeamResponse getTeamByCode(String teamCode) {

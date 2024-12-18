@@ -32,32 +32,23 @@ public class MatchController {
     }
 
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<MatchResponse> createMatch(@RequestBody MatchRequest matchRequest) {
+    @ResponseStatus(HttpStatus.OK)
+    public String createMatch(@RequestBody MatchRequest matchRequest) {
         MatchResponse createdMatch = matchService.createMatch(matchRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdMatch);
+        return ((createdMatch != null) ? "Match " + createdMatch.getHomeTeam().getName() + " - " + createdMatch.getAwayTeam().getName() + " is created successfully" : "Creating match failed");
     }
 
     @PutMapping("/edit/{matchCode}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<MatchResponse> editMatch(@PathVariable String matchCode, @RequestBody MatchRequest matchRequest) {
+    public String editMatch(@PathVariable String matchCode, @RequestBody MatchRequest matchRequest) {
         MatchResponse updatedMatch = matchService.editMatch(matchCode, matchRequest);
-        if (updatedMatch != null) {
-            return ResponseEntity.ok(updatedMatch);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ((updatedMatch != null) ? "Match " + updatedMatch.getHomeTeam().getName() + " - " + updatedMatch.getAwayTeam().getName() + " is edited successfully" : "Editing match failed");
     }
 
     @DeleteMapping("/remove/{matchCode}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> removeMatch(@PathVariable String matchCode) {
-        boolean isRemoved = matchService.removeMatch(matchCode);
-        if (isRemoved) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public String removeMatch(@PathVariable String matchCode) {
+        MatchResponse deletedMatch = matchService.removeMatch(matchCode);
+        return ((deletedMatch != null) ? "Match " + deletedMatch.getHomeTeam().getName() + " - " + deletedMatch.getAwayTeam().getName() + " is removed successfully" : "Deleting match failed");
     }
-
 }

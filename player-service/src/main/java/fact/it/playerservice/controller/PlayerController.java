@@ -2,7 +2,6 @@ package fact.it.playerservice.controller;
 
 import fact.it.playerservice.dto.PlayerRequest;
 import fact.it.playerservice.dto.PlayerResponse;
-import fact.it.playerservice.model.Player;
 import fact.it.playerservice.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,31 +39,26 @@ public class PlayerController {
     }
 
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<PlayerResponse> createPlayer(@RequestBody PlayerRequest playerRequest) {
+    @ResponseStatus(HttpStatus.OK)
+    public String createPlayer(@RequestBody PlayerRequest playerRequest) {
         PlayerResponse createdPlayer = playerService.createPlayer(playerRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdPlayer);
+        return ((createdPlayer != null) ? "Player " + createdPlayer.getFirstName() + " " + createdPlayer.getLastName()
+                + " is created successfully" : "Creating player failed");
     }
 
     @PutMapping("/edit/{playerCode}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<PlayerResponse> editPlayer(@PathVariable String playerCode, @RequestBody PlayerRequest playerRequest) {
+    public String editPlayer(@PathVariable String playerCode, @RequestBody PlayerRequest playerRequest) {
         PlayerResponse updatedPlayer = playerService.editPlayer(playerCode, playerRequest);
-        if (updatedPlayer != null) {
-            return ResponseEntity.ok(updatedPlayer);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ((updatedPlayer != null) ? "Player " + updatedPlayer.getFirstName() + " " + updatedPlayer.getLastName()
+                + " is edited successfully" : "Editing player failed");
     }
 
     @DeleteMapping("/remove/{playerCode}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> removePlayer(@PathVariable String playerCode) {
-        boolean isRemoved = playerService.removePlayer(playerCode);
-        if (isRemoved) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public String removePlayer(@PathVariable String playerCode) {
+        PlayerResponse deletedPlayer = playerService.removePlayer(playerCode);
+        return ((deletedPlayer != null) ? "Player " + deletedPlayer.getFirstName() + " " + deletedPlayer.getLastName()
+                + " is removed successfully" : "Deleting player failed");
     }
 }
