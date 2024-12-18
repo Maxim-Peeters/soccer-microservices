@@ -166,7 +166,6 @@ public class PlayerService {
         }
     }
 
-
     public boolean removePlayer(String playerCode) {
         Optional<Player> optionalPlayer = playerRepository.findPlayerByPlayerCode(playerCode);
         if (optionalPlayer.isPresent()) {
