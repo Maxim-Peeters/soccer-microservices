@@ -188,10 +188,10 @@ class PlayerServiceApplicationTests {
 		Mockito.when(playerRepository.findPlayerByPlayerCode(playerCode)).thenReturn(Optional.of(player));
 
 		// Act
-		boolean result = playerService.removePlayer(playerCode);
+		PlayerResponse result = playerService.removePlayer(playerCode);
 
 		// Assert
-		assertTrue(result);
+		assertNotNull(result);
 		Mockito.verify(playerRepository).delete(player);
 	}
 
@@ -201,10 +201,10 @@ class PlayerServiceApplicationTests {
 		String playerCode = "nonExistentPlayerCode";
 		Mockito.when(playerRepository.findPlayerByPlayerCode(playerCode)).thenReturn(Optional.empty());
 
-		// Act
-		boolean result = playerService.removePlayer(playerCode);
-
-		// Assert
-		assertFalse(result);
+		// Act & Assert
+		RuntimeException exception = assertThrows(RuntimeException.class, () -> playerService.removePlayer(playerCode));
+		assertEquals("Player not found with code: " + playerCode, exception.getMessage());
+		Mockito.verify(playerRepository, Mockito.never()).delete(Mockito.any());
 	}
+
 }

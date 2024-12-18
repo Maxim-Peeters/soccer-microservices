@@ -166,14 +166,12 @@ public class PlayerService {
         }
     }
 
-    public boolean removePlayer(String playerCode) {
-        Optional<Player> optionalPlayer = playerRepository.findPlayerByPlayerCode(playerCode);
-        if (optionalPlayer.isPresent()) {
-            playerRepository.delete(optionalPlayer.get());
-            return true;
-        } else {
-            return false;
-        }
+    public PlayerResponse removePlayer(String playerCode) {
+        Player deletedPlayer = playerRepository.findPlayerByPlayerCode(playerCode)
+                .orElseThrow(() -> new RuntimeException("Player not found with code: " + playerCode));
+
+        playerRepository.delete(deletedPlayer);
+        return mapToPlayerResponse(deletedPlayer);
     }
 
     private PlayerResponse mapToPlayerResponse(Player player){
