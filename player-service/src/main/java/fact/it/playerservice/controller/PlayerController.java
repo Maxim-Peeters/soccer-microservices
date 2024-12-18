@@ -2,7 +2,6 @@ package fact.it.playerservice.controller;
 
 import fact.it.playerservice.dto.PlayerRequest;
 import fact.it.playerservice.dto.PlayerResponse;
-import fact.it.playerservice.model.Player;
 import fact.it.playerservice.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

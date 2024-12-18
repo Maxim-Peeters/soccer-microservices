@@ -15,6 +15,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
@@ -68,35 +69,30 @@ public class TeamService {
     }
 
     public TeamResponse editTeam(String teamCode, TeamRequest teamRequest) {
-        Optional<Team> optionalTeam = teamRepository.findTeamByTeamCode(teamCode);
-        if (optionalTeam.isPresent()) {
-            Team team = optionalTeam.get();
+        Team existingTeam = teamRepository.findTeamByTeamCode(teamCode)
+                .orElseThrow(() -> new RuntimeException("Team not found with code: " + teamCode));
 
-            if (teamRequest.getName() != null) {
-                team.setName(teamRequest.getName());
-            }
-            if (teamRequest.getCity() != null) {
-                team.setCity(teamRequest.getCity());
-            }
-            if (teamRequest.getCountry() != null) {
-                team.setCountry(teamRequest.getCountry());
-            }
+        updateIfNotNull(teamRequest.getName(), existingTeam::setName);
+        updateIfNotNull(teamRequest.getCity(), existingTeam::setCity);
+        updateIfNotNull(teamRequest.getCountry(), existingTeam::setCountry);
 
-            Team updatedTeam = teamRepository.save(team);
-            return mapToTeamResponse(updatedTeam);
-        } else {
-            return null;
+        Team updatedTeam = teamRepository.save(existingTeam);
+        return mapToTeamResponse(updatedTeam);
+    }
+
+
+    private <T> void updateIfNotNull(T value, Consumer<T> setter) {
+        if (value != null) {
+            setter.accept(value);
         }
     }
 
-    public boolean removeTeam(String teamCode) {
-        Optional<Team> optionalTeam = teamRepository.findTeamByTeamCode(teamCode);
-        if (optionalTeam.isPresent()) {
-            teamRepository.delete(optionalTeam.get());
-            return true;
-        } else {
-            return false;
-        }
+    public TeamResponse removeTeam(String teamCode) {
+        Team deletedTeam = teamRepository.findTeamByTeamCode(teamCode)
+                .orElseThrow(() -> new RuntimeException("Team not found with code: " + teamCode));
+
+        teamRepository.delete(deletedTeam);
+        return mapToTeamResponse(deletedTeam);
     }
 
     private TeamResponse mapToTeamResponse(Team team) {

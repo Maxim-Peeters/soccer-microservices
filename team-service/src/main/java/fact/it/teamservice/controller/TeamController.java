@@ -36,31 +36,23 @@ public class TeamController {
     }
 
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TeamResponse> createTeam(@RequestBody TeamRequest teamRequest) {
+    @ResponseStatus(HttpStatus.OK)
+    public String createTeam(@RequestBody TeamRequest teamRequest) {
         TeamResponse createdTeam = teamService.createTeam(teamRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdTeam);
+        return ((createdTeam != null) ? "Team " + createdTeam.getName() + " is created successfully" : "Creating team failed");
     }
 
     @PutMapping("/edit/{teamCode}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<TeamResponse> editTeam(@PathVariable String teamCode, @RequestBody TeamRequest teamRequest) {
+    public String editTeam(@PathVariable String teamCode, @RequestBody TeamRequest teamRequest) {
         TeamResponse updatedTeam = teamService.editTeam(teamCode, teamRequest);
-        if (updatedTeam != null) {
-            return ResponseEntity.ok(updatedTeam);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ((updatedTeam != null) ? "Team " + updatedTeam.getName() + " is edited successfully" : "Editing team failed");
     }
 
     @DeleteMapping("/remove/{teamCode}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> removeTeam(@PathVariable String teamCode) {
-        boolean isRemoved = teamService.removeTeam(teamCode);
-        if (isRemoved) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public String removeTeam(@PathVariable String teamCode) {
+        TeamResponse deletedTeam = teamService.removeTeam(teamCode);
+        return ((deletedTeam != null) ? "Team " + deletedTeam.getName() + " is removed successfully" : "Deleting team failed");
     }
 }
