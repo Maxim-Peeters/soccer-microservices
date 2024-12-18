@@ -1,25 +1,27 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { GoogleAuthButtonComponent } from "../components/auth/GoogleAuthButton";
-import { useAuth } from "../contexts/AuthContext";
+import React from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../context/AuthContext";
 
-function LoginPage() {
-  const { token } = useAuth();
-  const navigate = useNavigate();
+const Login: React.FC = () => {
+  const { login } = useAuth(); // Access the login method from the context
 
-  useEffect(() => {
-    if (token) {
-      navigate("/players");
+  const handleLoginSuccess = (response: any) => {
+    console.log("Credential Response:", response);
+    if (response.credential) {
+      const token = response.credential;
+      login(token);
     }
-  }, [token, navigate]);
+  };
+
+  
 
   return (
     <div>
-      <h1>Login</h1>
-      <GoogleAuthButtonComponent />
+      <GoogleLogin
+        onSuccess={handleLoginSuccess}
+      />
     </div>
   );
-}
+};
 
-export default LoginPage;
-
+export default Login;

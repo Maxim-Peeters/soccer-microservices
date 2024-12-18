@@ -1,30 +1,37 @@
-import PlayerCard from "./PlayerCard";
-import PlayerService from "../../services/playerService";
-import { useAuthenticatedFetch } from "../../hooks/useAuthenticatedFetch";
+import  { useState } from 'react';
+import PlayerService from '../../services/playerService';
+import PlayerCard from './PlayerCard';
+import { PlayerResponse } from '../../dto/PlayerResponse';
 
-function PlayerListComponent() {
-  const { data: players, loading, error } = useAuthenticatedFetch(PlayerService.get);
+function PlayerList() {
+  const [players, setPlayers] = useState<PlayerResponse[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (loading) {
-    return <p>Loading players...</p>;
-  }
 
-  if (error) {
-    return <p>Error loading players: {error.message}</p>;
-  }
+    const fetchPlayers = async () => {
+      try {
+        const fetchedPlayers = await PlayerService.getAllPlayers();
+        setPlayers(fetchedPlayers);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch players');
+        setLoading(false);
+      }
+    };
 
-  if (!players) {
-    return <p>No players found or you may need to log in.</p>;
-  }
+    fetchPlayers();
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      {players.map((player) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {players.map(player => (
         <PlayerCard key={player.playerCode} player={player} />
       ))}
     </div>
   );
 }
 
-export default PlayerListComponent;
+export default PlayerList;
 
