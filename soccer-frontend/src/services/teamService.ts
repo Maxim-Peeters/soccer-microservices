@@ -15,4 +15,5 @@ export default class TeamService{
             throw new Error('Teams not found'); // Throw an error if there's a failure
           }
         }
+    static async createTeam(resu: TeamResponse): Promise<TeamResponse> {
 }
