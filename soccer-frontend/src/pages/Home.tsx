@@ -1,10 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { GoogleLogin } from '@react-oauth/google';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth(); // Destructure logout from AuthContext
+  const { isAuthenticated, logout, login } = useAuth(); // Destructure isAuthenticated and login from AuthContext
+
+  const handleGoogleLoginSuccess = (response: any) => {
+    const token = response.credential;
+    login(token);
+  };
+
 
   const navigationButtons = [
     { 
@@ -56,16 +63,23 @@ const HomePage: React.FC = () => {
         ))}
       </div>
       
-      {/* Logout Button */}
-      <button
-        onClick={() => {
-          logout(); // Call the logout function
-          navigate('/');
-        }}
-        className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 mt-8"
-      >
-        Logout
-      </button>
+      {/* Google Login/Logout Button */}
+      {!isAuthenticated ? (
+        <GoogleLogin
+          onSuccess={handleGoogleLoginSuccess}
+          useOneTap
+        />
+      ) : (
+        <button
+          onClick={() => {
+            logout();
+            navigate('/');
+          }}
+          className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 mt-8"
+        >
+          Logout
+        </button>
+      )}
     </div>
   );
 };
