@@ -45,6 +45,15 @@ spring:
             - SetPath=/api/teams
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
+        - id: team-create-service
+          uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/api/teams/create
+            - Method=POST
+          filters:
+            - SetPath=/api/teams/create
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
         - id: match-service
           uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
           predicates:
