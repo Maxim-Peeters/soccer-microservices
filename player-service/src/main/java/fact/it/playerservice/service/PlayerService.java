@@ -125,8 +125,8 @@ public class PlayerService {
                 .toList();
     }
 
-    public PlayerResponse getPlayerByPlayerCode(String teamCode) {
-        Optional<Player> team = playerRepository.findPlayerByPlayerCode(teamCode);
+    public PlayerResponse getPlayerByPlayerCode(String playerCode) {
+        Optional<Player> team = playerRepository.findPlayerByPlayerCode(playerCode);
         return team.map(this::mapToPlayerResponse).orElse(null);
     }
 
