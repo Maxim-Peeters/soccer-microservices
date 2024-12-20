@@ -11,6 +11,8 @@ import fact.it.playerservice.service.PlayerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
+@ExtendWith(MockitoExtension.class)
 public class PlayerServiceApplicationTests {
 
     @Mock
@@ -32,8 +35,6 @@ public class PlayerServiceApplicationTests {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
-
         // Initialize playerRequest and players for testing
         playerRequest = new PlayerRequest();
         playerRequest.setFirstName("John");
