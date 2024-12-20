@@ -10,10 +10,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class PlayerResponse {
+    private String playerCode;
     private String firstName;
     private String lastName;
     private String position;
     private LocalDate birthDate;
     private String nationality;
-
 }
