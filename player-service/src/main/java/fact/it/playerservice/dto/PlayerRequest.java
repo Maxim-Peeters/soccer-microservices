@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerRequest {
+    private String playerCode;
     private String firstName;
     private String lastName;
     private String position;
