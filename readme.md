@@ -4,8 +4,8 @@ Class: 3APP02
 
 ## Inhoudsopgave
 - [Thema](#thema)
-- [Services](#services)
 - [Deployment Schema](#deployment-schema)
+- [Services](#services)
 - [Endpoints](#endpoints)
 - [Authentication](#authentication)
 - [Postman requests](#postman-requests)
