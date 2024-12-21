@@ -109,7 +109,7 @@ public class MatchService {
     // Edit an existing match
     public MatchResponse editMatch(String matchCode, MatchRequest matchRequest) {
         Match existingMatch = matchRepository.findMatchByMatchCode(matchCode)
-                .orElseThrow(() -> new RuntimeException("Match not found"));
+                .orElseThrow(() -> new RuntimeException("Match not found with code: " + matchCode));
 
         updateIfNotNull(matchRequest.getHomeTeamCode(), existingMatch::setHomeTeamCode);
         updateIfNotNull(matchRequest.getAwayTeamCode(), existingMatch::setAwayTeamCode);
@@ -143,6 +143,7 @@ public class MatchService {
                 .bodyToMono(TeamResponse.class)
                 .block();
     }
+
     private MatchResponse mapToMatchResponse(Match match) {
         return MatchResponse.builder()
                 .matchCode(match.getMatchCode())
