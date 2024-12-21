@@ -102,7 +102,7 @@ Hieronder zie je alle endpoints en hun response met Postman.
 #### All By Playercode:
 ![All By Playercode](images/Player/GetByPlayerCode.png)
 #### All By Team Code:
-![All By Team Code](images/Player/AllByTeamCode.png)
+![All By Team Code](images/Player/AllByTeamCOde.png)
 #### Add New Player:
 ![Add New Player](images/Player/AddNewPlayer.png)
 #### Edit Player:
