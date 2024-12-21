@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @ExtendWith(MockitoExtension.class)
-public class PlayerServiceApplicationTests {
+public class PlayerServiceUnitTests {
 
     @Mock
     private PlayerRepository playerRepository;
@@ -100,9 +100,7 @@ public class PlayerServiceApplicationTests {
                 .thenReturn(Optional.empty());
 
         // Act & Assert:
-        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () -> {
-            playerService.getPlayersByTeamCode("NonExistentTeam");
-        });
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () -> playerService.getPlayersByTeamCode("NonExistentTeam"));
 
         assertEquals("No players found for team code: NonExistentTeam", exception.getMessage());
     }
@@ -209,9 +207,7 @@ public class PlayerServiceApplicationTests {
         when(playerRepository.findPlayerByPlayerCode(anyString())).thenReturn(Optional.empty());
 
         // Act & Assert
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            playerService.editPlayer("non-existing-player-code", playerRequest);
-        });
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> playerService.editPlayer("non-existing-player-code", playerRequest));
 
         assertEquals("Player not found with code: non-existing-player-code", exception.getMessage());
     }
@@ -244,9 +240,7 @@ public class PlayerServiceApplicationTests {
         when(playerRepository.findPlayerByPlayerCode(anyString())).thenReturn(Optional.empty());
 
         // Act & Assert
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            playerService.removePlayer("non-existing-player-code");
-        });
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> playerService.removePlayer("non-existing-player-code"));
 
         assertEquals("Player not found with code: non-existing-player-code", exception.getMessage());
         verify(playerRepository, times(0)).delete(any(Player.class));
