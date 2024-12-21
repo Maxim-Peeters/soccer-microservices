@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 import TeamService from '../../services/teamService';
-import { v4 as uuidv4 } from 'uuid'; // Import UUID generator
+import { TeamRequest } from '../../dto/TeamRequest';
+import { TeamResponse } from '../../dto/TeamResponse';
 
 interface AddEditTeamProps {
     onClose: () => void;
+    team?: TeamResponse | null; // Make team optional
 }
 
-const AddEditTeam: React.FC<AddEditTeamProps> = ({ onClose }) => {
-    const [name, setName] = useState('');
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
+const AddEditTeam: React.FC<AddEditTeamProps> = ({ onClose, team }) => {
+    const [name, setName] = useState(team?.name || '');
+    const [city, setCity] = useState(team?.city || '');
+    const [country, setCountry] = useState(team?.country || '');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const teamData = { 
-            teamCode: uuidv4(), // Generate UUID for new team
-            teamName: name, 
-            city, 
-            country 
-        };
+        const teamData: TeamRequest = { name, city, country };
         try {
-            await TeamService.createTeam(teamData);
+            if (team) {
+                await TeamService.updateTeam(team.teamCode, teamData);
+            } else {
+                await TeamService.createTeam(teamData);
+            }
             onClose();
         } catch (err) {
             console.error('Failed to save team', err);
@@ -30,10 +31,10 @@ const AddEditTeam: React.FC<AddEditTeamProps> = ({ onClose }) => {
     return (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-                <h2 className="text-2xl font-bold mb-4">Add Team</h2>
+                <h2 className="text-2xl font-bold mb-4">{team ? 'Edit Team' : 'Add Team'}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Name</label>
+                        <label className="block text-gray-700">Team Name</label>
                         <input 
                             type="text" 
                             value={name} 

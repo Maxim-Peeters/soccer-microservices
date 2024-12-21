@@ -6,4 +6,4 @@ export interface TeamResponse {
     city: string;
     country: string;
     players: PlayerResponse[];
-  }
+}

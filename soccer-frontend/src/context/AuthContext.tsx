@@ -19,7 +19,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (storedToken) {
         const decodedToken = jwtDecode(storedToken);
         if(decodedToken?.exp){
-            const isExpired = Date.now()>=decodedToken.exp*1000;
+            const isExpired = Date.now()>=decodedToken.exp*1000; //1 hour = 3600 seconds
             if(isExpired){
                 logout()
             }else{
