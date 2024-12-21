@@ -155,7 +155,7 @@ public class SupporterService {
 
     public SupporterResponse editSupporter(String supporterCode, SupporterRequest supporterRequest) {
         Supporter existingSupporter = supporterRepository.findSupporterBySupporterCode(supporterCode)
-                .orElseThrow(() -> new RuntimeException("Supporter not found"));
+                .orElseThrow(() -> new RuntimeException("Supporter not found with code: " + supporterCode));
 
         updateIfNotNull(supporterRequest.getFirstName(), existingSupporter::setFirstName);
         updateIfNotNull(supporterRequest.getLastName(), existingSupporter::setLastName);

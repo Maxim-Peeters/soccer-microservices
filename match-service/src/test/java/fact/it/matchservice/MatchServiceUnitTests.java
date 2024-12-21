@@ -113,13 +113,13 @@ class MatchServiceUnitTests {
     @Test
     void testGetAllMatches() {
         // Arrange
-        Mockito.when(matchRepository.findAll()).thenReturn(List.of(match1, match2));
+        when(matchRepository.findAll()).thenReturn(List.of(match1, match2));
 
-        Mockito.when(webClient.get()).thenReturn(requestHeadersUriSpec);
-        Mockito.when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
-        Mockito.when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+        when(webClient.get()).thenReturn(requestHeadersUriSpec);
+        when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
+        when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
 
-        Mockito.when(responseSpec.bodyToMono(TeamResponse.class))
+        when(responseSpec.bodyToMono(TeamResponse.class))
                 .thenReturn(Mono.just(team1), Mono.just(team2), Mono.just(team3), Mono.just(team4));
 
         // Act
@@ -129,14 +129,14 @@ class MatchServiceUnitTests {
         Assertions.assertEquals(2, result.size());
 
         MatchResponse response1 = result.get(0);
-        Assertions.assertEquals("match1-code", response1.getMatchCode());
-        Assertions.assertEquals("FC Barcelona", response1.getHomeTeam().getName());
-        Assertions.assertEquals("Real Madrid", response1.getAwayTeam().getName());
+        Assertions.assertEquals(match1.getMatchCode(), response1.getMatchCode());
+        Assertions.assertEquals(match1.getHomeTeamCode(), response1.getHomeTeam().getName());
+        Assertions.assertEquals(match1.getAwayTeamCode(), response1.getAwayTeam().getName());
 
         MatchResponse response2 = result.get(1);
-        Assertions.assertEquals("match2-code", response2.getMatchCode());
-        Assertions.assertEquals("Manchester United", response2.getHomeTeam().getName());
-        Assertions.assertEquals("Liverpool FC", response2.getAwayTeam().getName());
+        Assertions.assertEquals(match2.getMatchCode(), response2.getMatchCode());
+        Assertions.assertEquals(match2.getHomeTeamCode(), response2.getHomeTeam().getName());
+        Assertions.assertEquals(match2.getAwayTeamCode(), response2.getAwayTeam().getName());
     }
 
     @Test
@@ -145,11 +145,11 @@ class MatchServiceUnitTests {
         when(matchRepository.findMatchByMatchCode("match1-code"))
                 .thenReturn(Optional.of(match1));
 
-        Mockito.when(webClient.get()).thenReturn(requestHeadersUriSpec);
-        Mockito.when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
-        Mockito.when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+        when(webClient.get()).thenReturn(requestHeadersUriSpec);
+        when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
+        when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
 
-        Mockito.when(responseSpec.bodyToMono(TeamResponse.class))
+        when(responseSpec.bodyToMono(TeamResponse.class))
                 .thenReturn(Mono.just(team1), Mono.just(team2));
 
         // Act
@@ -188,11 +188,11 @@ class MatchServiceUnitTests {
 
         when(matchRepository.save(any(Match.class))).thenReturn(match);
 
-        Mockito.when(webClient.get()).thenReturn(requestHeadersUriSpec);
-        Mockito.when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
-        Mockito.when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+        when(webClient.get()).thenReturn(requestHeadersUriSpec);
+        when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
+        when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
 
-        Mockito.when(responseSpec.bodyToMono(TeamResponse.class))
+        when(responseSpec.bodyToMono(TeamResponse.class))
                 .thenReturn(Mono.just(team1), Mono.just(team2));
 
         // Act
@@ -224,11 +224,11 @@ class MatchServiceUnitTests {
 
         when(matchRepository.save(any(Match.class))).thenReturn(updatedMatch);
 
-        Mockito.when(webClient.get()).thenReturn(requestHeadersUriSpec);
-        Mockito.when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
-        Mockito.when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+        when(webClient.get()).thenReturn(requestHeadersUriSpec);
+        when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
+        when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
 
-        Mockito.when(responseSpec.bodyToMono(TeamResponse.class))
+        when(responseSpec.bodyToMono(TeamResponse.class))
                 .thenReturn(Mono.just(team1), Mono.just(team2));
 
         // Act
@@ -252,16 +252,16 @@ class MatchServiceUnitTests {
     }
 
     @Test
-    void testRemoveTeam() {
+    void testRemoveMatch() {
         // Arrange
         when(matchRepository.findMatchByMatchCode(match1.getMatchCode()))
                 .thenReturn(Optional.of(match1));
 
-        Mockito.when(webClient.get()).thenReturn(requestHeadersUriSpec);
-        Mockito.when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
-        Mockito.when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+        when(webClient.get()).thenReturn(requestHeadersUriSpec);
+        when(requestHeadersUriSpec.uri(Mockito.anyString())).thenReturn(requestHeadersSpec);
+        when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
 
-        Mockito.when(responseSpec.bodyToMono(TeamResponse.class))
+        when(responseSpec.bodyToMono(TeamResponse.class))
                 .thenReturn(Mono.just(team1), Mono.just(team2));
 
         // Act
