@@ -13,7 +13,7 @@ import SupporterCrud from "./components/supporters/SupporterCrud";
 const App: React.FC = () => {
   
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENTID}>
+    <GoogleOAuthProvider clientId="9820153602-arej6j0d42h1blcts57fp95aa7gvhpsq.apps.googleusercontent.com">
       <AuthProvider>
       <Router>
         <NavBar />
