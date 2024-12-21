@@ -117,6 +117,7 @@ services:
       - 8085:80
     environment:
       API_GATEWAY_BASEURL: api-gateway:8084
+      VITE_GOOGLE_AUTH_CLIENTID: ${GOOGLE_CLIENTID}
 volumes:
   mongodb_player_data:
   mysql_team_data:
