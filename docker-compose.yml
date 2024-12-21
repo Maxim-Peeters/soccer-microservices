@@ -114,7 +114,7 @@ services:
       - api-gateway
     image: maximp123/soccer-frontend
     ports:
-      - 8085:80
+      - 3000:80
     environment:
       API_GATEWAY_BASEURL: api-gateway:8084
 volumes:
