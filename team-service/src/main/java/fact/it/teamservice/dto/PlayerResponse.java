@@ -14,6 +14,7 @@ public class PlayerResponse {
     private String firstName;
     private String lastName;
     private String position;
+    private String teamCode;
     private LocalDate birthDate;
     private String nationality;
 }
