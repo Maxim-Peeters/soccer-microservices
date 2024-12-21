@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class TeamResponse {
+    private String teamCode;
     private String name;
     private String city;
     private String country;
-
 }
