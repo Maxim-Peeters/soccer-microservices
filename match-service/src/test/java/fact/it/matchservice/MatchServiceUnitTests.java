@@ -130,13 +130,13 @@ class MatchServiceUnitTests {
 
         MatchResponse response1 = result.get(0);
         Assertions.assertEquals(match1.getMatchCode(), response1.getMatchCode());
-        Assertions.assertEquals(match1.getHomeTeamCode(), response1.getHomeTeam().getName());
-        Assertions.assertEquals(match1.getAwayTeamCode(), response1.getAwayTeam().getName());
+        Assertions.assertEquals(match1.getHomeTeamCode(), response1.getHomeTeam().getTeamCode());
+        Assertions.assertEquals(match1.getAwayTeamCode(), response1.getAwayTeam().getTeamCode());
 
         MatchResponse response2 = result.get(1);
         Assertions.assertEquals(match2.getMatchCode(), response2.getMatchCode());
-        Assertions.assertEquals(match2.getHomeTeamCode(), response2.getHomeTeam().getName());
-        Assertions.assertEquals(match2.getAwayTeamCode(), response2.getAwayTeam().getName());
+        Assertions.assertEquals(match2.getHomeTeamCode(), response2.getHomeTeam().getTeamCode());
+        Assertions.assertEquals(match2.getAwayTeamCode(), response2.getAwayTeam().getTeamCode());
     }
 
     @Test
