@@ -5,7 +5,6 @@ Class: 3APP02
 ## Inhoudsopgave
 - [Thema](#thema)
 - [Services](#services)
-- [Front-end](#front-end)
 - [Deployment Schema](#deployment-schema)
 - [Endpoints](#endpoints)
 - [Authentication](#authentication)
@@ -28,7 +27,7 @@ De match-service beheert alle gegevens met betrekking tot de wedstrijden. Dit om
 #### supporter-service
 De supporter-service beheert alle gegevens met betrekking tot de supporters. Dit omvat het toevoegen, bewerken, verwijderen en opvragen van supportersinformatie. 
 
-### Front-end
+#### Frontend
 De frontend is verantwoordelijk voor het presenteren van de gegevens aan de gebruikers en biedt functionaliteiten zoals het bekijken en beheren van teams, wedstrijden en supporters. De frontend communiceert met de backend services om de benodigde gegevens op te halen en acties uit te voeren.
 
 
