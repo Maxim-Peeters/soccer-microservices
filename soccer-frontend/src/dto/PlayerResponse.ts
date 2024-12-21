@@ -6,6 +6,5 @@ export interface PlayerResponse {
     teamCode: string;
     birthDate: string; // Use ISO string format to represent the date
     nationality: string;
-  }
+}
 
-  

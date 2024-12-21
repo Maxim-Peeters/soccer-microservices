@@ -1,6 +1,5 @@
 export interface TeamRequest {
-    teamCode: string;
-    teamName: string;
+    name: string;
     city: string;
     country: string;
 }

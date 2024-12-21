@@ -10,13 +10,9 @@ export default class PlayerService {
     const response = await axios.get<PlayerResponse[]>(baseUrl);
     return response.data;
   }
-  static async getPlayerByPlayerCode(playerCode: string): Promise<PlayerResponse> {
-    const response = await axios.get(`${baseUrl}/by-id/${playerCode}`);
-    return response.data; // Assuming response data is a string message
-  }
-
   static async addPlayer(playerRequest: PlayerRequest): Promise<string> {
     const authToken = Cookies.get("auth_token");
+    console.log("jaja");
     const response = await axios.post(`${baseUrl}/create`, playerRequest, {
       headers: {
         Authorization: `Bearer ${authToken}`

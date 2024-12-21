@@ -38,7 +38,7 @@ export default class TeamService {
 
     static async deleteTeam(teamCode: string): Promise<string> {
         const authToken = Cookies.get("auth_token");
-        const response = await axios.delete<string>(`${baseUrl}/delete/${teamCode}`, {
+        const response = await axios.delete<string>(`${baseUrl}/remove/${teamCode}`, {
             headers: {
                 Authorization: `Bearer ${authToken}`
             }
