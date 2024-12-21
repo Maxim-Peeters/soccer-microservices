@@ -85,7 +85,6 @@ class TeamServiceUnitTests {
 
         // Mock WebClient response for player data
         PlayerResponse playerResponse = new PlayerResponse();
-        playerResponse.setTeamCode("team-1-code");
 
         when(webClient.get()).thenReturn(requestHeadersUriSpec);
         when(requestHeadersUriSpec.uri(anyString(), any(Function.class))).thenReturn(requestHeadersSpec);
@@ -112,7 +111,6 @@ class TeamServiceUnitTests {
 
         // Mock WebClient response for player data
         PlayerResponse playerResponse = new PlayerResponse();
-        playerResponse.setTeamCode("team-1-code");
 
         when(webClient.get()).thenReturn(requestHeadersUriSpec);
         when(requestHeadersUriSpec.uri(anyString(), any(Function.class))).thenReturn(requestHeadersSpec);
