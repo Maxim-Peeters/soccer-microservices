@@ -9,7 +9,6 @@ logging:
     reactor.netty: INFO
     org.springframework.security: TRACE
 
-
 spring:
   security:
     oauth2:
@@ -34,8 +33,30 @@ spring:
           filters:
             - SetPath=/api/players
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-
-
+        - id: player-create-service
+          uri: http://${PLAYER_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/players/create
+            - Method=POST
+          filters:
+            - SetPath=/api/players/create
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: player-edit-service
+          uri: http://${PLAYER_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/players/edit/{playerCode}
+            - Method=PUT
+          filters:
+            - SetPath=/api/players/edit/{playerCode}
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: player-remove-service
+          uri: http://${PLAYER_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/players/remove/{playerCode}
+            - Method=DELETE
+          filters:
+            - SetPath=/api/players/remove/{playerCode}
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
         - id: team-service
           uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
           predicates:
@@ -48,10 +69,28 @@ spring:
         - id: team-create-service
           uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
           predicates:
-            - Path=/api/teams/create
+            - Path=/teams/create
             - Method=POST
           filters:
             - SetPath=/api/teams/create
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+        - id: team-edit-service
+          uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/teams/edit/{teamCode}
+            - Method=PUT
+          filters:
+            - SetPath=/api/teams/edit/{teamCode}
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+        - id: team-remove-service
+          uri: http://${TEAM_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/teams/remove/{teamCode}
+            - Method=DELETE
+          filters:
+            - SetPath=/api/teams/remove/{teamCode}
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
         - id: match-service
@@ -61,7 +100,32 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/matches
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
+        - id: match-create-service
+          uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/matches/create
+            - Method=POST
+          filters:
+            - SetPath=/api/matches/create
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: match-edit-service
+          uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/matches/edit/{matchCode}
+            - Method=PUT
+          filters:
+            - SetPath=/api/matches/edit/{matchCode}
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: match-remove-service
+          uri: http://${MATCH_SERVICE_BASEURL:localhost:8082}
+          predicates:
+              - Path=/matches/remove/{matchCode}
+              - Method=DELETE
+          filters:
+              - SetPath=/api/matches/remove/{matchCode}
+              - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
         - id: supporter-service
           uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
           predicates:
@@ -69,3 +133,29 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/supporters
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+        - id: supporter-create-service
+          uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
+          predicates:
+            - Path=/supporters/create
+            - Method=POST
+          filters:
+            - SetPath=/api/supporters/create
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: supporter-edit-service
+          uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
+          predicates:
+              - Path=/supporters/edit/{supporterCode}
+              - Method=PUT
+          filters:
+              - SetPath=/api/supporters/edit/{supporterCode}
+              - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+        - id: supporter-remove-service
+          uri: http://${SUPPORTER_SERVICE_BASEURL:localhost:8083}
+          predicates:
+              - Path=/supporters/remove/{supporterCode}
+              - Method=DELETE
+          filters:
+              - SetPath=/api/supporters/remove/{supporterCode}
+              - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin

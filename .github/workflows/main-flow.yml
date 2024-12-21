@@ -137,3 +137,19 @@ jobs:
 
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/api-gateway:latest
+  
+  soccer-frontend:
+    runs-on: ubuntu-latest
+    name: Build, test, deliver soccer-frontend container
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Build
+        run: docker build -t ${{ secrets.DOCKER_USER }}/soccer-frontend:latest ./soccer-frontend
+
+      - name: Upload container to Docker Hub with Push
+        run: docker push ${{ secrets.DOCKER_USER }}/soccer-frontend:latest

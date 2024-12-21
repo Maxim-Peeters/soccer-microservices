@@ -1,16 +1,4 @@
 services:
-  soccer-frontend:
-    build:
-      context: ./soccer-frontend
-      dockerfile: Dockerfile
-    ports:
-      - 3000:80
-    restart: unless-stopped
-    environment:
-      REACT_APP_API_GATEWAY_URL: api-gateway:8084
-    depends_on:
-      - api-gateway
-
   mongo-player:
     image: mongo:latest
     ports:
@@ -121,6 +109,14 @@ services:
       TEAM_SERVICE_BASEURL: team-service:8081
       MATCH_SERVICE_BASEURL: match-service:8082
       SUPPORTER_SERVICE_BASEURL: supporter-service:8083
+  soccer-frontend:
+    depends_on:
+      - api-gateway
+    image: maximp123/soccer-frontend
+    ports:
+      - 8085:80
+    environment:
+      API_GATEWAY_BASEURL: api-gateway:8084
 volumes:
   mongodb_player_data:
   mysql_team_data:
