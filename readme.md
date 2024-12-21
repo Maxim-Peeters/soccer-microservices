@@ -9,7 +9,7 @@ Class: 3APP02
 - [Endpoints](#endpoints)
 - [Authentication](#authentication)
 - [Postman requests](#postman-requests)
-- [Front-end](#front-end-1)
+- [Front-end](#front-end)
 ## Thema
 Het thema van dit project is een microservices-architectuur voor een voetbalcompetitie. De backend bestaat uit verschillende services die elk een specifiek domein beheren, zoals spelers, teams, wedstrijden en supporters. Deze services communiceren met elkaar via API's en maken gebruik van verschillende databases zoals MongoDB en MySQL.
 
