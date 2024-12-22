@@ -32,8 +32,7 @@ De frontend is verantwoordelijk voor het presenteren van de gegevens aan de gebr
 
 
 ## Deployment Schema
-![Deployment](/images/Deployment.png)
-
+![DeploymentDiagram](images/DeploymentDiagram.png)
 ## Services
 ### player-service
 - **port**: 8080
